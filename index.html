@@ -1,1 +1,68 @@
-<p>Hello!</p>
+<HTML>
+<HEAD>
+<TITLE>Test Input</TITLE>
+<meta name="viewport" content="user-scalable=no, width=device-width" />
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="fetchp.js"></script>
+<script>
+$(document).ready(function () {
+  $.get("https://justcoin.com/api/v1/markets?id=BTCSTR", function(data){
+    var sprice = (data[3].ask);
+    document.getElementById("sprice").value = sprice;
+  });
+  $.get("https://justcoin.com/api/v1/markets?id=BTCXRP", function(data){
+    var xprice = (data[5].ask);
+    document.getElementById("xprice").value = xprice;
+  });
+  $.get("https://jsonp.nodejitsu.com/?callback=&url=https%3A%2F%2Fapi.bitfinex.com%2Fv1%2Fpubticker%2Fbtcusd", function(data){
+    var dprice = (data.mid);
+    document.getElementById("dprice").value = dprice;
+  });
+  $.get("https://jsonp.nodejitsu.com/?callback=&url=http%3A%2F%2Fpubapi1.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D132", function(data){
+    var doprice = (data.return.markets.DOGE.lasttradeprice);
+    document.getElementById("doprice").value = doprice;
+  });
+});
+</script>
+</HEAD>
+<BODY>
+<center>
+<img src="https://www.stellar.org/wp-content/uploads/2014/07/Twitter_avatar-150x150.png" alt="Hello!">
+<H1><font face="arial">Stellar Conversion</font></H1>
+<script type="text/javascript">
+document.write ('<p><font face="arial">Price last updated: <span id="date-time">', new Date().toLocaleString(), '<\/span>.</font><\/p>')
+if (document.getElementById) onload = function () {
+	"document.getElementById ('date-time').firstChild.data = new Date().toLocaleString()"
+}
+</script>
+<FORM NAME="myform" ACTION="" METHOD="GET">
+<input id="number" type="text" size="10" value="1000">&nbsp;<select id="test">
+<option >BTC</option>
+<option SELECTED >STR</option>
+<option >USD</option>
+<option >DOGE</option>
+<option >XRP</option>
+</select> to <select id="test2">
+<option >USD</option>
+<option >STR</option>
+<option >DOGE</option>
+<option >XRP</option>
+<option  SELECTED >BTC</option>
+
+</select>
+<INPUT TYPE="button" NAME="button1" Value="Convert" onClick="readText(this.form)">
+</FORM>
+<input id="answer" size="25" type="text" align="center" value="">
+</BODY>
+<BR><BR><BR><BR><BR><BR>
+<input type="hidden" id="sprice" value="">
+<input type="hidden" id="dprice" value="">
+<input type="hidden" id="doprice" value="">
+<input type="hidden" id="xprice" value="">
+<footer>
+<p><font face="arial">This site provides the latest exchange rates between the digital currency Stellar, USD, Bitcoin, Ripple, and Dogecoin.</font></p>
+<address><font face="arial">&copy; Copyright 2014 All Rights Reserved www.convertstellar.org</font></address>
+</center>
+
+</HTML>
