@@ -8,8 +8,7 @@ div.contentBox{
 }
 body {
     background: url("http://imgur.com/mL8sn8s.jpg");
-    background-size: 100%;
-    background-height: auto;
+    background-size: auto;
     background-repeat: no-repeat;
     padding-top: 40px;
 }
