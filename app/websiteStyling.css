@@ -6,6 +6,12 @@ div.contentBox{
 	font-family:sans-serif;
 	margin-top:20px;
 }
+body {
+    background: url("http://imgur.com/mL8sn8s.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding-top: 40px;
+}
 div.whiteSpace{
 	display:flex;
 	max-width: 100%;
