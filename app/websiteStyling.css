@@ -26,7 +26,7 @@ img.test {
     height: auto;
 }
 img.test2 {
-    width: auto;
+    width: 100%;
     height: auto;
 }
 ul
