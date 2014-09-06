@@ -1,0 +1,54 @@
+div.contentBox{
+	width:1070px;
+	background: rgba(00, 00,00, .9);
+	padding: 5px;
+	color:#FFFFFF;
+	font-family:sans-serif;
+	margin-top:20px;
+}
+div.whiteSpace{
+	display:flex;
+	width:550px;
+	height:200px;
+	align-items: center;
+	background-color: #FFFFFF;
+	padding: 5px;
+	font-family:sans-serif;
+}
+body {
+	position: absolute;
+	left: 100px;
+	background-attachment:fixed;
+}
+ul
+{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	white-space:nowrap;
+	overflow:hidden;
+}
+li
+{
+	float:left;
+	background-color:#000000;
+	display:inline-block;
+	width:180px;
+}
+li:hover{
+	background-color:#505050;
+}
+a:link,a:visited
+{
+	display:block;
+	font-weight:bold;
+	color:#FFFFFF;
+	text-align:center;
+	padding:10px;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+p.sponsorText{
+	position:absolute;
+	left:570px;
+}
