@@ -1,5 +1,5 @@
 div.contentBox{
-	width:1070px;
+	max-width: 100%;
 	background: rgba(00, 00,00, .9);
 	padding: 5px;
 	color:#FFFFFF;
@@ -8,17 +8,12 @@ div.contentBox{
 }
 div.whiteSpace{
 	display:flex;
-	width:550px;
-	height:200px;
+	max-width: 100%;
+	height: auto;
 	align-items: center;
 	background-color: #FFFFFF;
 	padding: 5px;
 	font-family:sans-serif;
-}
-body {
-	position: absolute;
-	left: 100px;
-	background-attachment:fixed;
 }
 ul
 {
@@ -33,7 +28,7 @@ li
 	float:left;
 	background-color:#000000;
 	display:inline-block;
-	width:180px;
+	max-width: 100%;
 }
 li:hover{
 	background-color:#505050;
