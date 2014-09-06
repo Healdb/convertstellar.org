@@ -38,7 +38,7 @@ ul
 }
 li
 {
-	float:right;
+	float:center;
 	background-color:#000000;
 	display:inline-block;
 	max-width: 100%;
