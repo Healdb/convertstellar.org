@@ -19,7 +19,7 @@ ul
 {
 	list-style-type:none;
 	margin:0;
-	padding:4;
+	padding:0;
 	white-space:wrap;
 }
 li
