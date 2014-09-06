@@ -1,6 +1,5 @@
 if (window.innerWidth && window.innerWidth <= 600) { 
     $(document).ready(function(){
-        $('#header ul').addClass('hide'); 
         $('#header').append('<div class="leftButton"><a href="navigate.html" style="color: #FFFFFF; text-decoration: none;">Menu</a></div>');
     }); 
     function toggleMenu() {
