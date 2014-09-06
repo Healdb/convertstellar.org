@@ -30,7 +30,7 @@ ul
 	list-style-type:none;
 	margin:0;
 	padding:0;
-	white-space:wrap;
+	white-space:nowrap;
 }
 li
 {
