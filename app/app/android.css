@@ -73,8 +73,8 @@ body {
     text-shadow: rgba (0,0,0,0.6) 0px -1px 1px;
     line-height: 28px;
     border-width: 0 8px 0 8px;
-    -webkit-border-image: url(images/button.png) 0 8 0 8;
+    -webkit-border-image: url(http://imgur.com/PvUSVZ6.png) 0 8 0 8;
 }
 #header div.pressed {
-    -webkit-border-image: url(images/button_clicked.png) 0 8 0 8;
+    -webkit-border-image: url(http://imgur.com/wJIaSTW.png) 0 8 0 8;
 }
