@@ -10,7 +10,7 @@ body {
     margin: 0;
     padding: 0;
 }
-#header img.test {
+#content img.test {
     width: 100%;
     height: auto;
 }
