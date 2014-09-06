@@ -15,6 +15,10 @@ div.whiteSpace{
 	padding: 5px;
 	font-family:sans-serif;
 }
+img.test {
+    width: 100%;
+    height: auto;
+}
 ul
 {
 	list-style-type:none;
