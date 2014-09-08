@@ -1,6 +1,6 @@
 body { 
     background-color: #FFFFFF; /* Background color */
-    color: #FFFFFF;	        /* Foreground color used for text */
+    color: #222;	        /* Foreground color used for text */
     font-family: Helvetica; 
     font-size: 14px; 
     margin: 0;	            /* Amount of negative space around the outside of the body */
@@ -33,7 +33,7 @@ body {
 #header ul li a {
     background-color: #FFFFFF;
     border: 1px solid #999999;
-    color: #222222;
+    color: #FFFFFF;
     display: block;
     font-size: 17px;
     font-weight: bold;
