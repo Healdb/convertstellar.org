@@ -16,7 +16,7 @@ body {
 }
 #header h1 a {
     background-color: #FFFFFF;
-    border-bottom: 1px solid #FFFFFF;
+    border-bottom: 1px solid #666;
     color: #222;
     display: block;
     font-size: 20px;
