@@ -11,7 +11,8 @@
         <script type="text/javascript" src="android.js"></script>
         <script>
         $(document).ready(function () {
-  		$('#header').addClass('hide');
+        	var frame = document.getElementById("frame");
+  		frame.setAttribute("type", "hidden");
   		$('#head').append('<p>Hey</p>');
         });
         </script>
@@ -23,7 +24,7 @@
             <div id="content">
             <div class="responsive-iframe-container">
             <div id="head">
-            <iframe src="https://www.google.com/calendar/b/0/htmlembed?src=team1099%40brookfieldps.org&ctz=America/New_York"></iframe>
+            <iframe id="frame" src="https://www.google.com/calendar/b/0/htmlembed?src=team1099%40brookfieldps.org&ctz=America/New_York"></iframe>
             </div>
             </div>
             </div>
