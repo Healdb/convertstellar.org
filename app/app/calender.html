@@ -9,6 +9,12 @@
         <![endif]-->
         <script type="text/javascript" src="jquery.js"></script>
         <script type="text/javascript" src="android.js"></script>
+        <script>
+        $(document).ready(function () {
+  		$('#head iframe').addClass('hide');
+  		$('#head').append('<p>Hey</p>');
+        });
+        </script>
     </head>
     <body>
         <div id="container">
@@ -16,7 +22,9 @@
                 <h1><a>Team 1099</a></h1>
             <div id="content">
             <div class="responsive-iframe-container">
+            <div id="head">
             <iframe src="https://www.google.com/calendar/b/0/htmlembed?src=team1099%40brookfieldps.org&ctz=America/New_York"></iframe>
+            </div>
             </div>
             </div>
 	</div>
