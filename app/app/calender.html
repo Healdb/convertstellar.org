@@ -11,8 +11,11 @@
         <script type="text/javascript" src="android.js"></script>
         <script>
         $(document).ready(function () {
-        	document.getElementById("frame").style.visibility="hidden";
-  		$('#head').append('<p>Hey</p>');
+        	var x = screen.width;
+        	if x > 600 {
+        		document.getElementById("frame").style.visibility="hidden";
+  			$('#head').append('<iframe src="https://www.google.com/calendar/embed?src=team1099%40brookfieldps.org&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>');
+        	}
         });
         </script>
     </head>
