@@ -12,13 +12,13 @@
         <script type="text/javascript" src="jquery.js"></script>
         <script type="text/javascript" src="android.js"></script>
         <script type="text/javascript">
-   function blockMove() {
-      event.preventDefault() ;
+  document.ontouchstart = function(e){ 
+    e.preventDefault(); 
 }
 </script>
     <link rel="stylesheet" type="text/css" href="http://blog.lazd.net/iOCSS/css/io.css">
     </head>
-    <body ontouchmove="blockMove()" class="iOCSS white">
+    <body class="iOCSS white">
 <div class="header">
   <div>
     <a href="navigate.html" class="button"><i class="icon-money"></i> Menu</a>
