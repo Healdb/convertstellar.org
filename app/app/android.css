@@ -19,7 +19,7 @@ body {
     padding-bottom: 56.25%;
     padding-top: 30px;
     width: 100%;
-    overflow: auto;
+    overflow: 100%;
 }
  
 .responsive-iframe-container iframe,   
