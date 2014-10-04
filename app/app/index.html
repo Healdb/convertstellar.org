@@ -21,6 +21,12 @@
         <script type="text/javascript" src="jquery.js"></script>
         <script type="text/javascript" src="android.js"></script>
 <script>
+var myEl = document.getElementById('heyid');
+myEl.addEventListener('click', function() {
+    alert('Hello world');
+}, false);
+</script>
+<script>
  $(document).ready(function () { 
     $('html').hide().fadeIn("slow").delay(6000);
 });
@@ -31,7 +37,7 @@
 <body class="iOCSS white">
 <div class="header">
   <div>
-    <a href="navigate.html" class="button"><i class="icon-money"></i> Menu</a>
+    <a id="heyid" class="button"><i class="icon-money"></i> Menu</a>
   </div>
   
   <h1>Team 1099</h1>
