@@ -2,11 +2,14 @@
 <html>
 <body>
 
+<p>Click the button to display the hostname (and the port if not 80) of the current URL.</p>
 
-<p id="demo">Hey</p>
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
 
 <script>
-$(document).ready(function () {
+function myFunction() {
     document.getElementById("demo").innerHTML = location.host;
 }
 </script>
