@@ -1,8 +1,2 @@
-<html>
-<body>
-
-Welcome <?php echo $_GET["name"]; ?><br>
-Your email address is: <?php echo $_GET["email"]; ?>
-
-</body>
-</html>
+Hi <?php echo htmlspecialchars($_POST['name']); ?>.
+You are <?php echo (int)$_POST['age']; ?> years old.
