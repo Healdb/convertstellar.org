@@ -20,8 +20,8 @@ $(document).ready(function () {
     var xprice = (data[5].ask);
     document.getElementById("xprice").value = xprice;
   });
-  $.get("https://jsonp.nodejitsu.com/?callback=&url=https%3A%2F%2Fapi.bitfinex.com%2Fv1%2Fpubticker%2Fbtcusd", function(data){
-    var dprice = (data.mid);
+  $.get("https://jsonp.nodejitsu.com/?callback=&url=http%3A%2F%2Fpubapi1.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D2", function(data){
+    var dprice = (data.return.markets.BTC.lasttradeprice);
     document.getElementById("dprice").value = dprice;
   });
   $.get("https://jsonp.nodejitsu.com/?callback=&url=http%3A%2F%2Fpubapi1.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D132", function(data){
