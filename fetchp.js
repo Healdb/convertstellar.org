@@ -8,15 +8,15 @@ function readText (form) {
     var num = document.getElementById("number").value;
     if (TestVar == "STR" && Test2Var == "BTC") {
         var num = document.getElementById("number").value;
-        var btcp = (num / sprice);
-        document.getElementById("answer").value = btcp;
-    }
-    else if (TestVar == "BTC" && Test2Var == "STR") {
         var btcp = (num * sprice);
         document.getElementById("answer").value = btcp;
     }
+    else if (TestVar == "BTC" && Test2Var == "STR") {
+        var btcp = (num / sprice);
+        document.getElementById("answer").value = btcp;
+    }
     else if (TestVar == "BTC" && Test2Var == "XRP") {
-        var btcp = (num * xprice);
+        var btcp = (num / xprice);
         document.getElementById("answer").value = btcp;
     }
     else if (TestVar == "DOGE" && Test2Var == "XRP") {
@@ -35,7 +35,7 @@ function readText (form) {
         document.getElementById("answer").value = btcp;
     }
     else if (TestVar == "XRP" && Test2Var == "BTC") {
-        var btcp = (num / xprice);
+        var btcp = (num * xprice);
         document.getElementById("answer").value = btcp;
     }
     else if (TestVar == "XRP" && Test2Var == "DOGE") {
