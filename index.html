@@ -12,7 +12,7 @@ redirect_from: "/foo"
 <script type="text/javascript" src="fetchp.js"></script>
 <script>
 function myfunc(json) {
-  alert(json.data.avg.value);
+  document.getElementById("sprice").value = json.data.avg.value;
 }
 </script>
 <script>
