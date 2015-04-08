@@ -12,7 +12,7 @@ redirect_from: "/foo"
 <script type="text/javascript" src="fetchp.js"></script>
 <script>
 $(document).ready(function () {
-  $.get("https://anxpro.com/api/2/BTCSTR/money/ticker", function(data){
+  $.get("http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker&callback=cbfunc", function(data){
     var sprice = (data[3].value);
     document.getElementById("sprice").value = sprice;
   });
