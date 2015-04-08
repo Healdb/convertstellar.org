@@ -21,9 +21,14 @@ $.ajax({
     document.getElementById("sprice").value = sprice;
   }
   });
-  $.get("https://justcoin.com/api/v1/markets?id=BTCXRP", function(data){
-    var xprice = (data[5].ask);
-    document.getElementById("xprice").value = xprice;
+  $.ajax({
+  type:     "GET",
+  url:      "https://anxpro.com/api/2/BTCXRP/money/ticker",
+  dataType: "jsonp",
+  success: function(data){
+    var sprice = (data.avg.value);
+    document.getElementById("sprice").value = sprice;
+  }
   });
   $.get("https://jsonp.nodejitsu.com/?callback=&url=http%3A%2F%2Fpubapi1.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D2", function(data){
     var dprice = (data.return.markets.BTC.lasttradeprice);
