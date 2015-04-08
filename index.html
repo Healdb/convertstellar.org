@@ -12,24 +12,21 @@ redirect_from: "/foo"
 <script type="text/javascript" src="fetchp.js"></script>
 <script>
 $(document).ready(function () {
+  function myfunc(json) {
+  alert(json);
+}
+
 $.ajax({
-  type:     "GET",
-  url:      "https://anxpro.com/api/2/BTCSTR/money/ticker",
-  dataType: "application/json",
-  success: function(data){
-    var sprice = (data.avg.value);
-    document.getElementById("sprice").value = sprice;
+  type: "GET",
+  url: "https://anxpro.com/api/2/BTCSTR/money/ticker&callback=jsonp",
+  dataType: 'jsonp',
+  jsonpCallback: 'myfunc', // the function to call
+  jsonp: 'callback', // name of the var specifying the callback in the request
+  error: function (xhr, errorType, exception) {
+    var errorMessage = exception || xhr.statusText;
+    alert("Excep:: " + exception + "Status:: " + xhr.statusText);
   }
-  });
-  $.ajax({
-  type:     "GET",
-  url:      "https://anxpro.com/api/2/BTCXRP/money/ticker",
-  dataType: "jsonp",
-  success: function(data){
-    var sprice = (data.avg.value);
-    document.getElementById("sprice").value = sprice;
-  }
-  });
+});
   $.get("https://jsonp.nodejitsu.com/?callback=&url=http%3A%2F%2Fpubapi1.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D2", function(data){
     var dprice = (data.return.markets.BTC.lasttradeprice);
     document.getElementById("dprice").value = dprice;
