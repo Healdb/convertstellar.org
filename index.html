@@ -21,6 +21,13 @@ function myfunc2(json) {
 }
 </script>
 <script>
+$('#myform input').keydown(function(e) {
+    if (e.keyCode == 13) {
+        readText(this.form);
+    }
+});
+</script>
+<script>
 $(document).ready(function () {
 $.ajax({
   type: "GET",
@@ -66,7 +73,7 @@ if (document.getElementById) onload = function () {
 	"document.getElementById ('date-time').firstChild.data = new Date().toLocaleString()"
 }
 </script>
-<FORM NAME="myform" ACTION="" METHOD="GET">
+<FORM id = "myform" NAME="myform" ACTION="" METHOD="GET">
 <input id="number" type="text" size="10" value="1000">&nbsp;<select id="test" onchange="readText(this.form)">
 <option >BTC</option>
 <option SELECTED >STR</option>
