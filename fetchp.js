@@ -97,12 +97,12 @@ function readText (form) {
         document.getElementById("answer").value = utcp;
     }
     else if (TestVar == "STR" && Test2Var == "USD") {
-        var btcp = (num / sprice);
+        var btcp = (num * sprice);
         var ttcp = (btcp * dprice);
         document.getElementById("answer").value = ttcp;
     }
     else if (TestVar == "STR" && Test2Var == "DOGE") {
-        var btcp = (num / sprice);
+        var btcp = (num * sprice);
         var ttcp = (btcp / doprice);
         document.getElementById("answer").value = ttcp;
     }
