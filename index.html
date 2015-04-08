@@ -12,7 +12,7 @@ redirect_from: "/foo"
 <script type="text/javascript" src="fetchp.js"></script>
 <script>
 $(document).ready(function () {
-  $.get("https://justcoin.com/api/v1/markets?id=BTCSTR", function(data){
+  $.get("https://jsonp.afeld.me/?url=https://justcoin.com/api/v1/markets?id=BTCSTR", function(data){
     var sprice = (data[3].ask);
     document.getElementById("sprice").value = sprice;
   });
