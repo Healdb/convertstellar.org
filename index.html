@@ -15,7 +15,7 @@ $(document).ready(function () {
 $.ajax({
   type:     "GET",
   url:      "https://anxpro.com/api/2/BTCSTR/money/ticker",
-  dataType: "jsonp",
+  dataType: "application/json",
   success: function(data){
     var sprice = (data.avg.value);
     document.getElementById("sprice").value = sprice;
