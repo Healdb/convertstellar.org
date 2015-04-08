@@ -16,6 +16,12 @@ function myfunc(json) {
 }
 </script>
 <script>
+function myfunc2(json) {
+  document.getElementById("xprice").value = json.data.avg.value;
+  alert(json.data.avg.value)
+}
+</script>
+<script>
 $(document).ready(function () {
 $.ajax({
   type: "GET",
@@ -28,11 +34,17 @@ $.ajax({
     alert("Excep:: " + exception + "Status:: " + xhr.statusText);
   }
 });
-$.get("http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCXRP/money/ticker&callback=jsonp", function(data){
-    var dprice = (data.data.avg.value);
-    alert(data.data.avg.value);
-    document.getElementById("xprice").value = xprice;
-  });
+$.ajax({
+  type: "GET",
+  url: "http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCXRP/money/ticker&callback=jsonp",
+  dataType: 'jsonp',
+  jsonpCallback: 'myfunc2', // the function to call
+  jsonp: 'callback', // name of the var specifying the callback in the request
+  error: function (xhr, errorType, exception) {
+    var errorMessage = exception || xhr.statusText;
+    alert("Excep:: " + exception + "Status:: " + xhr.statusText);
+  }
+});
   $.get("https://jsonp.nodejitsu.com/?callback=&url=http%3A%2F%2Fpubapi1.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D2", function(data){
     var dprice = (data.return.markets.BTC.lasttradeprice);
     document.getElementById("dprice").value = dprice;
