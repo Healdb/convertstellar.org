@@ -14,7 +14,7 @@ redirect_from: "/foo"
 $(document).ready(function () {
   $.ajax({
     type: "GET",
-    url: "json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker&callback=jsonp",
+    url: "http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker&callback=jsonp",
     success: function (data) {
         alert(data);
     },
