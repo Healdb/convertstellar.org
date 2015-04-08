@@ -13,7 +13,7 @@ redirect_from: "/foo"
 <script>
 $(document).ready(function () {
   $.get("http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker&callback=cbfunc", function(data){
-    var sprice = (data[2].value);
+    var sprice = (data.avg.value);
     document.getElementById("sprice").value = sprice;
   });
   $.get("https://justcoin.com/api/v1/markets?id=BTCXRP", function(data){
