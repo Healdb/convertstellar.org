@@ -28,6 +28,11 @@ $.ajax({
     alert("Excep:: " + exception + "Status:: " + xhr.statusText);
   }
 });
+$.get("http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCXRP/money/ticker&callback=jsonp", function(data){
+    var dprice = (data.data.avg.value);
+    alert(data.data.avg.value);
+    document.getElementById("xprice").value = xprice;
+  });
   $.get("https://jsonp.nodejitsu.com/?callback=&url=http%3A%2F%2Fpubapi1.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D2", function(data){
     var dprice = (data.return.markets.BTC.lasttradeprice);
     document.getElementById("dprice").value = dprice;
