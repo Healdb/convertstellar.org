@@ -12,7 +12,6 @@ redirect_from: "/foo"
 <script type="text/javascript" src="fetchp.js"></script>
 <script>
 $(document).ready(function () {
-	alert("data");
   $.get("https://anxpro.com/api/2/BTCSTR/money/ticker?jsonp=parseResponse", function(data){
     var sprice = (data);
     alert(data);
@@ -31,6 +30,13 @@ $(document).ready(function () {
     document.getElementById("doprice").value = doprice;
   });
 });
+</script>
+
+<script>
+$(document).ready(function cbfunc( data ){
+		alert("data");
+  console.log( data ); // Logs "jQuery Howto"
+}	
 </script>
 </HEAD>
 <BODY>
