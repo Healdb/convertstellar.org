@@ -11,17 +11,16 @@ redirect_from: "/foo"
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="fetchp.js"></script>
 <script>
-function cbfunc( data ){
-		alert("data");
-  console.log( data ); // Logs "jQuery Howto"
-}	
-</script>
-<script>
 $(document).ready(function () {
-  $.get("http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker&callback=cbfunc", function(data){
+$.ajax({
+  type:     "GET",
+  url:      "http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker",
+  dataType: "jsonp",
+  success: function(data){
     var sprice = (data);
     alert(data);
     document.getElementById("sprice").value = sprice;
+  }
   });
   $.get("https://justcoin.com/api/v1/markets?id=BTCXRP", function(data){
     var xprice = (data[5].ask);
