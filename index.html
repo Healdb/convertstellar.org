@@ -17,8 +17,7 @@ $.ajax({
   url:      "http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker",
   dataType: "jsonp",
   success: function(data){
-    var sprice = (data);
-    alert(data);
+    var sprice = (data.avg.value);
     document.getElementById("sprice").value = sprice;
   }
   });
