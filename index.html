@@ -11,8 +11,14 @@ redirect_from: "/foo"
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="fetchp.js"></script>
 <script>
+function cbfunc( data ){
+		alert("data");
+  console.log( data ); // Logs "jQuery Howto"
+}	
+</script>
+<script>
 $(document).ready(function () {
-  $.get("https://anxpro.com/api/2/BTCSTR/money/ticker?jsonp=parseResponse", function(data){
+  $.get("http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker&callback=cbfunc", function(data){
     var sprice = (data);
     alert(data);
     document.getElementById("sprice").value = sprice;
@@ -32,12 +38,6 @@ $(document).ready(function () {
 });
 </script>
 
-<script>
-$(document).ready(function cbfunc( data ){
-		alert("data");
-  console.log( data ); // Logs "jQuery Howto"
-}	
-</script>
 </HEAD>
 <BODY>
 <center>
