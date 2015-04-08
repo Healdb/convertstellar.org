@@ -11,10 +11,12 @@ redirect_from: "/foo"
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="fetchp.js"></script>
 <script>
-$(document).ready(function () {
 function myfunc(json) {
   alert(json);
 }
+</script>
+<script>
+$(document).ready(function () {
 $.ajax({
   type: "GET",
   url: "http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker&callback=jsonp",
