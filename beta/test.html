@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>iOS 7 Style Switches</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Switchery stylesheet -->
+        <link rel="stylesheet" href="switchery.css" />
+        <!-- Design Instruct stylesheet: *This is not required for Switchery to work* -->
+        <link rel="stylesheet" href="custom.css">
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+        <!-- Switchery JavaScript file -->
+        <script src="switchery.js"></script>
+    </head>
+    <body>
+        <div class="design-instruct-topbar">
+            <a href="http://designinstruct.com/web-design/ios-7-switches-switchery/">Go back to Design Instruct tutorial</a>
+        </div>
+
+        <div class="container">
+            
+            <h1>iOS 7 Style Switches</h1>
+            <p class="sub-title">How to Add iOS 7 Style Switches to Your HTML Forms Using Switchery</p>
+
+            <!-- Web form -->
+            <form class="switchery-form">
+                <p class="settings-heading">Manage Your Apps Settings</p>
+                
+                <p class="setting-switch setting-switch-first">
+                    <label for="setting1">Enable automatic billing</label>
+                    <!-- Switchery checkbox #1 -->
+                    <input type="checkbox" class="switchery" name="setting1" />
+                </p>
+                
+                <p class="setting-switch">
+                    <label for="setting2">Disable email alerts</label>
+                    <!-- Switchery checkbox #2 -->
+                    <input type="checkbox" class="switchery" checked name="setting2" />
+                </p>
+                
+                <p class="setting-switch">
+                    <label for="setting3">Send weekly reports by email</label>
+                    <!-- Switchery checkbox #3 -->
+                    <input type="checkbox" class="switchery" checked name="setting3" />
+                </p>
+                
+                <p class="setting-switch">
+                    <label for="setting4">SMS alerts</label>
+                    <!-- Switchery checkbox #4 -->
+                    <input type="checkbox" class="switchery" checked name="setting4" />
+                </p>
+                
+                <p class="update-settings-button">
+                    <input type="button" value="Update Settings" />
+                </p>
+            </form>
+            <!-- End: Web form -->
+
+            <h2><a href="http://designinstruct.com/web-design/ios-7-switches-switchery/">Go back to tutorial</a></h2>
+        
+        </div>
+
+        <!-- Switchery script -->
+        <script type="text/javascript">
+            // Create the Switchery object
+            var Switchery = require('switchery');
+            
+            // You can change the class of your Switchery checkboxes
+            // by changing the document.querySelectorAll() argument.
+            // For example: If we want to use the class name ios7-switch,
+            // i.e. <input type="checkbox" class="ios7-switch" />
+            // we update the following line to
+            // ...document.querySelectorAll('.ios7-switch')...
+            var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
+            
+            // This loop is needed so that we can have
+            // more than one Switchery checkbox
+            elems.forEach(function(html) {
+                var switchery = new Switchery(html);
+            });
+        </script>
+        <!-- End: Switchery script -->
+    </body>
+</html>
