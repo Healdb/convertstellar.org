@@ -23,7 +23,7 @@ body {
    height:60px;   /* Height of the footer */
    background:#6cf;
 }
-button {
+.btn {
   background: #C0C0C0;
   background-image: -webkit-linear-gradient(top, #C0C0C0, #E0E0E0);
   background-image: -moz-linear-gradient(top, #C0C0C0, #E0E0E0);
@@ -42,7 +42,7 @@ button {
   text-decoration: none;
 }
 
-button:hover {
+.btn:hover {
   background: #3cb0fd;
   background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
   background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
