@@ -9,6 +9,11 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="fetchp.js"></script>
 <script>
+ $(document).ready(function () { 
+    $('html').hide().fadeIn("slow").delay(6000);
+});
+</script>
+<script>
 function myfunc(json) {
   document.getElementById("sprice").value = json.data.avg.value;
 }
