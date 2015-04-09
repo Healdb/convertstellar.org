@@ -1,0 +1,113 @@
+
+
+
+<HTML>
+<HEAD>
+<TITLE>Convert Stellar</TITLE>
+<meta name="viewport" content="user-scalable=no, width=device-width" />
+<link rel="stylesheet" type="text/css" href="index.css">
+<script src="inobounce.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="fetchp.js"></script>
+<script>
+function myfunc(json) {
+  document.getElementById("sprice").value = json.data.avg.value;
+}
+</script>
+<script>
+function myfunc2(json) {
+  document.getElementById("xprice").value = json.data.avg.value;
+}
+</script>
+<script>
+$('#myform input').keydown(function(e) {
+    if (e.keyCode == 13) {
+        readText(this.form);
+    }
+});
+</script>
+<script>
+$(document).ready(function () {
+$.ajax({
+  type: "GET",
+  url: "http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker&callback=jsonp",
+  dataType: 'jsonp',
+  jsonpCallback: 'myfunc', // the function to call
+  jsonp: 'callback', // name of the var specifying the callback in the request
+  error: function (xhr, errorType, exception) {
+    var errorMessage = exception || xhr.statusText;
+    alert("Excep:: " + exception + "Status:: " + xhr.statusText);
+  }
+});
+$.ajax({
+  type: "GET",
+  url: "http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCXRP/money/ticker&callback=jsonp",
+  dataType: 'jsonp',
+  jsonpCallback: 'myfunc2', // the function to call
+  jsonp: 'callback', // name of the var specifying the callback in the request
+  error: function (xhr, errorType, exception) {
+    var errorMessage = exception || xhr.statusText;
+    alert("Excep:: " + exception + "Status:: " + xhr.statusText);
+  }
+});
+  $.get("https://jsonp.nodejitsu.com/?callback=&url=http%3A%2F%2Fpubapi1.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D2", function(data){
+    var dprice = (data.return.markets.BTC.lasttradeprice);
+    document.getElementById("dprice").value = dprice;
+  });
+  $.get("https://jsonp.nodejitsu.com/?callback=&url=http%3A%2F%2Fpubapi1.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D132", function(data){
+    var doprice = (data.return.markets.DOGE.lasttradeprice);
+    document.getElementById("doprice").value = doprice;
+  });
+});
+</script>
+
+</HEAD>
+<BODY>
+<center>
+<img src="https://www.stellar.org/wp-content/uploads/2014/07/Twitter_avatar-150x150.png" alt="Hello!">
+<H1><font face="arial">Stellar Conversion</font></H1>
+<script type="text/javascript">
+document.write ('<p><font face="arial">Price last updated: <span id="date-time">', new Date().toLocaleString(), '<\/span>.</font><\/p>')
+if (document.getElementById) onload = function () {
+        "document.getElementById ('date-time').firstChild.data = new Date().toLocaleString()"
+}
+</script>
+<FORM id = "myform" NAME="myform" ACTION="" METHOD="GET">
+<input id="number" type="text" size="10" value="1000">&nbsp;<select id="test" onchange="readText(this.form)">
+<option >BTC</option>
+<option SELECTED >STR</option>
+<option >USD</option>
+<option >DOGE</option>
+<option >XRP</option>
+</select> to <select id="test2" onchange="readText(this.form)">
+<option >USD</option>
+<option >STR</option>
+<option >DOGE</option>
+<option >XRP</option>
+<option  SELECTED >BTC</option>
+
+</select>
+</FORM>
+<input id="answer" size="25" type="text" align="center" value="">
+</BODY>
+<script>
+        readText(this.form)
+</script>
+<BR><BR><BR><BR><BR><BR>
+<input type="hidden" id="sprice" value="">
+<input type="hidden" id="dprice" value="">
+<input type="hidden" id="doprice" value="">
+<input type="hidden" id="xprice" value="">
+<footer>
+<p><font face="arial">This site provides the latest exchange rates between the digital currency Stellar, USD, Bitcoin, Ripple, and Dogecoin.</font></p>
+<address><font face="arial">&copy; Copyright 2014 All Rights Reserved www.convertstellar.org</font></address>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Stellar2 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:320px;height:50px"
+     data-ad-client="ca-pub-8596318467244860"
+     data-ad-slot="3794838436"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</center>
+</HTML>
