@@ -22,10 +22,9 @@ function myfunc2(json) {
 }
 </script>
 <script>
-$("input").keypress(function(event) {
-    if (event.which == 13) {
-        return false;
-    }
+$('#myform').submit(function () {
+ sendMyForm();
+ return false;
 });
 </script>
 <script>
