@@ -30,13 +30,10 @@ body {
   background-image: -ms-linear-gradient(top, #C0C0C0, #E0E0E0);
   background-image: -o-linear-gradient(top, #C0C0C0, #E0E0E0);
   background-image: linear-gradient(to bottom, #C0C0C0, #E0E0E0);
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
-  font-family: Arial;
-  color: #808080;
+  font-family: Georgia;
+  color: #242324;
   font-size: 20px;
-  padding: 10px 20px 10px 20px;
+  border: solid #020a0f 2px;
   text-decoration: none;
 }
 
