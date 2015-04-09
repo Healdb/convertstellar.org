@@ -14,9 +14,21 @@
 <body>
 <div id="body">
 <BR><BR><BR><BR><BR><BR><BR>
-<input type="checkbox" class="switchery" checked name="setting1" />
-<input type="checkbox" class="switchery" checked name="setting2" />
-<input type="checkbox" class="switchery" checked name="setting3" />
+<form class="switchery-form">
+                <p class="settings-heading">Manage Your Apps Settings</p>
+                
+                <p class="setting-switch setting-switch-first">
+                    <label for="setting1">Enable Dark Theme</label>
+                    <!-- Switchery checkbox #1 -->
+                    <input type="checkbox" class="switchery" name="setting1" />
+                </p>
+                
+                <p class="setting-switch">
+                    <label for="setting2">Enable Cat</label>
+                    <!-- Switchery checkbox #2 -->
+                    <input type="checkbox" class="switchery" checked name="setting2" />
+                </p>
+            </form>
 </body>
  <div id="footer">
   <a href="index.html"><button type="button" class="btn" >Home</button></a><a href="settings.html"><button type="button" class="btn" href="settings.html">Settings</button></a><a href="about.html"><button type="button" class="btn" href="about.html">About</button></a>
