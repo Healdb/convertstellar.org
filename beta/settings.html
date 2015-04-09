@@ -22,6 +22,25 @@
  <div id="footer">
   <a href="index.html"><button type="button" class="btn" >Home</button></a><a href="settings.html"><button type="button" class="btn" href="settings.html">Settings</button></a><a href="about.html"><button type="button" class="btn" href="about.html">About</button></a>
   </div>
+  <!-- Switchery script -->
+        <script type="text/javascript">
+            // Create the Switchery object
+            var Switchery = require('switchery');
+            
+            // You can change the class of your Switchery checkboxes
+            // by changing the document.querySelectorAll() argument.
+            // For example: If we want to use the class name ios7-switch,
+            // i.e. <input type="checkbox" class="ios7-switch" />
+            // we update the following line to
+            // ...document.querySelectorAll('.ios7-switch')...
+            var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
+            
+            // This loop is needed so that we can have
+            // more than one Switchery checkbox
+            elems.forEach(function(html) {
+                var switchery = new Switchery(html);
+            });
+        </script>
 </center>
 </HTML>
 </div>
