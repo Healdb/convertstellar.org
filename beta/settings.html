@@ -44,7 +44,7 @@ function checkCookie() {
 <center>
 <div id="header"><HEAD></div>
 <TITLE>Convert Stellar</TITLE>
-<body>
+<body onload="checkCookie()">
 <div id="body">
 <BR><BR><BR><BR><BR><BR><BR>
 <form class="switchery-form">
@@ -84,6 +84,14 @@ function checkCookie() {
             elems.forEach(function(html) {
                 var switchery = new Switchery(html);
             });
+        </script>
+        <script>
+                var changeCheckbox = document.querySelector('.js-check-change')
+  , changeField = document.querySelector('.js-check-change-field');
+
+changeCheckbox.onchange = function() {
+  changeField.innerHTML = changeCheckbox.checked;
+};
         </script>
 </center>
 </HTML>
