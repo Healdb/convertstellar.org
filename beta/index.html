@@ -12,6 +12,8 @@
 <script>
 function myfunc(json) {
   document.getElementById("sprice").value = json.data.avg.value;
+  document.getElementById("answer").value = 1000* json.data.avg.value;
+
 }
 </script>
 <script>
