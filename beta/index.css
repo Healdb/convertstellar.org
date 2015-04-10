@@ -22,7 +22,7 @@ body {
    height:45px;   /* Height of the footer */
 }
 input{ 
-    text-align:right; 
+    text-align:center; 
 } 
 .frm {
    display: inline-block; 
