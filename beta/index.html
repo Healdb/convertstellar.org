@@ -11,7 +11,6 @@
 <script src="inobounce.js"></script>
 <script type="text/javascript" src="fetchp.js"></script>
 <link href="switchery.css" rel="stylesheet" />
-<script src='fastbutton.js'></script>
 <script>
 function myfunc(json) {
   document.getElementById("sprice").value = json.data.avg.value;
@@ -161,16 +160,18 @@ $.ajax({
     </script>
     
  <div id="footer">
-  <input type='submit' onclick="showa()" id = "showi" class="btn" value='Home'></input><input type="submit" id="shows" class="btn" value="Settings"></input><input type="submit" class="btn" id="showa" value="About"></input>
+  <form id ="hey" action='/'><input type='submit' id = "showi" class="btn" value='Home'></input></form><input type="submit" id="shows" class="btn" value="Settings"></input><input type="submit" class="btn" id="showa" value="About"></input>
   </div>
-  <input type="submit" onclick="myFunction()" value="Submit">
-
-
+<script src='fastbutton.js'></script>
 <script>
-function myFunction() {
-    alert("The form was submitted");
-}
-</script>
+      $('#hey').click(function(ev) {
+        $("#body1").hide();
+        $("#body2").show();
+        $("#body3").hide();
+      }).submit(function() {
+        return false;
+      });
+    </script>
 
 </center>
 </HTML>
