@@ -22,15 +22,7 @@ body {
    height:45px;   /* Height of the footer */
 }
 form {
-    margin:0;
-  padding: 10px 20px 10px 20px;
-  font-size: 20px;
-  width:33.3333333333333%;
-}
-input{
-   margin:0;
-  padding: 10px 20px 10px 20px;
-  font-size: 20px;
+   display: inline-block; 
   width:33.3333333333333%;
 }
 .btn {
