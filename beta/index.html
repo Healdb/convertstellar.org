@@ -152,10 +152,24 @@ $.ajax({
   </div>
 <script src='fastbutton.js'></script>
 <script>
-      $('#hey').click(function(ev) {
+      $('#showi').click(function(ev) {
+        $("#body1").show();
+        $("#body2").hide();
+        $("#body3").hide();
+      }).submit(function() {
+        return false;
+      });
+      $('#shows').click(function(ev) {
         $("#body1").hide();
         $("#body2").show();
         $("#body3").hide();
+      }).submit(function() {
+        return false;
+      });
+      $('#showa').click(function(ev) {
+        $("#body1").hide();
+        $("#body2").hide();
+        $("#body3").show();
       }).submit(function() {
         return false;
       });
