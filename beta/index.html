@@ -26,9 +26,13 @@ function myfunc2(json) {
 </script>
 <script>
 $(document).ready(function () {
-  $("button").on("tap",function(){
-    alert("tap");
-  });   
+$("#home").click(function() {
+    // this function will get executed every time the #home element is clicked (or tab-spacebar changed)
+    if($(this).is(":checked")) // "this" refers to the element that fired the event
+    {
+        alert('home is checked');
+    }
+});
 $("#body2").hide();
 $("#body3").hide();
 $("#body1").show();
@@ -117,7 +121,7 @@ $.ajax({
                 <p class="setting-switch setting-switch-first">
                     <label for="setting1">Enable Dark Theme</label>
                     <!-- Switchery checkbox #1 -->
-                    <input type="checkbox" onchange = "changeTheme()" class="switchery" name="setting1" />
+                    <input id ="home" type="checkbox" class="switchery" name="setting1" />
                 </p>
                 
                 <p class="setting-switch">
