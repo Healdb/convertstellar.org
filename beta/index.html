@@ -157,6 +157,8 @@ $.ajax({
         , changeField = document.querySelector('.js-check-change-field');
 
       changeCheckbox.onchange = function() {
+        var sheet = document.styleSheets[0];
+        console.log(document.styleSheets[0]);
         alert(changeCheckbox.checked);
       };
 
