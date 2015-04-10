@@ -10,8 +10,7 @@
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="inobounce.js"></script>
 <script type="text/javascript" src="fetchp.js"></script>
-<link rel="stylesheet" href="switchery.css" />
-<script src="switchery.js"></script>
+<link href="http://abpetkov.github.io/switchery/dist/switchery.min.css" rel="stylesheet" />
 <script>
 function myfunc(json) {
   document.getElementById("sprice").value = json.data.avg.value;
@@ -114,7 +113,7 @@ $.ajax({
                 <p class="setting-switch setting-switch-first">
                     <label for="setting1">Enable Dark Theme</label>
                     <!-- Switchery checkbox #1 -->
-                    <input type="checkbox" class="js-switch js-check-change switchery" checked />
+                    <input type="checkbox" class="js-switch js-check-change" checked />
                     <div class="check-change js-check-change-field"></div>
                 </p>
                 
@@ -134,32 +133,34 @@ $.ajax({
 <input type="hidden" id="dprice" value="">
 <input type="hidden" id="doprice" value="">
 <input type="hidden" id="xprice" value="">
- <script type="text/javascript">
-            // Create the Switchery object
-            var Switchery = require('switchery');
-            
-            // You can change the class of your Switchery checkboxes
-            // by changing the document.querySelectorAll() argument.
-            // For example: If we want to use the class name ios7-switch,
-            // i.e. <input type="checkbox" class="ios7-switch" />
-            // we update the following line to
-            // ...document.querySelectorAll('.ios7-switch')...
-            var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
-            
-            // This loop is needed so that we can have
-            // more than one Switchery checkbox
-            elems.forEach(function(html) {
-                var switchery = new Switchery(html);
-            });
-        </script>
-        <script>
-var changeCheckbox = document.querySelector('.js-check-change')
-  , changeField = document.querySelector('.js-check-change-field');
+<script type="text/javascript" src="http://abpetkov.github.io/switchery/dist/switchery.min.js"></script>
+    <script type="text/javascript">
 
-changeCheckbox.onchange = function() {
-  changeField.innerHTML = changeCheckbox.checked;
-};
-</script>
+      // Default
+      // if-else statement used only for fixing <IE9 issues
+      if (Array.prototype.forEach) {
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+        elems.forEach(function(html) {
+          var switchery = new Switchery(html);
+        });
+      } else {
+        var elems = document.querySelectorAll('.js-switch');
+
+        for (var i = 0; i < elems.length; i++) {
+          var switchery = new Switchery(elems[i]);
+        }
+      }
+
+      // On change
+      var changeCheckbox = document.querySelector('.js-check-change')
+        , changeField = document.querySelector('.js-check-change-field');
+
+      changeCheckbox.onchange = function() {
+        changeField.innerHTML = changeCheckbox.checked;
+      };
+
+    </script>
  <div id="footer">
   <button id = "showi" type="button" class="btn" >Home</button><button type="button" id="shows" class="btn">Settings</button><button type="button" class="btn" id="showa">About</button>
   </div>
