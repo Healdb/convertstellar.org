@@ -17,30 +17,6 @@ function myfunc(json) {
 }
 </script>
 <script>
-  $("#showi").click(function(){
-        $("#body1").show();
-        $("#body2").hide();
-        $("#body3").hide();
-        
-    });
-    </script>
-    <script>
-    $("#shows").click(function(){
-        $("#body1").hide();
-        $("#body2").show();
-        $("#body3").hide();
-        
-    });
-    </script>
-    <script>
-    $("#showa").click(function(){
-        $("#body1").hide();
-        $("#body2").hide();
-        $("#body3").show();
-        
-    });
-    </script>
-<script>
 function myfunc2(json) {
   document.getElementById("xprice").value = json.data.avg.value;
 }
@@ -50,6 +26,24 @@ $(document).ready(function () {
 $("#body2").hide();
 $("#body3").hide();
 $("#body1").show();
+$("#showi").click(function(){
+    $("#body1").show();
+    $("#body2").hide();
+    $("#body3").hide();
+        
+});
+    $("#shows").click(function(){
+        $("#body1").hide();
+        $("#body2").show();
+        $("#body3").hide();
+        
+    });
+    $("#showa").click(function(){
+        $("#body1").hide();
+        $("#body2").hide();
+        $("#body3").show();
+        
+    });
 $.ajax({
   type: "GET",
   url: "http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker&callback=jsonp",
@@ -81,6 +75,7 @@ $.ajax({
     document.getElementById("doprice").value = doprice;
   });
 });
+
 </script>
 
 </HEAD>
