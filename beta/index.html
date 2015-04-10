@@ -113,7 +113,7 @@ $.ajax({
                 <p class="setting-switch setting-switch-first">
                     <label for="setting1">Enable Dark Theme</label>
                     <!-- Switchery checkbox #1 -->
-                    <input type="checkbox" class="js-switch js-check-change" checked />
+                    <input type="checkbox" class="js-switch js-check-change" />
                     <div class="check-change js-check-change-field"></div>
                 </p>
                 
@@ -157,6 +157,7 @@ $.ajax({
         , changeField = document.querySelector('.js-check-change-field');
 
       changeCheckbox.onchange = function() {
+        console.log(changeCheckbox.checked);
         if(changeCheckbox.checked=="true"){
         var sheet = document.styleSheets[0];
         console.log(document.styleSheets[0]);
