@@ -114,7 +114,8 @@ $.ajax({
                 <p class="setting-switch setting-switch-first">
                     <label for="setting1">Enable Dark Theme</label>
                     <!-- Switchery checkbox #1 -->
-                    <input id ="home" type="checkbox" class="switchery" name="setting1" />
+                    <input type="checkbox" class="js-switch js-check-change" checked />
+                    <div class="check-change js-check-change-field"></div>
                 </p>
                 
                 <p class="setting-switch">
@@ -150,11 +151,15 @@ $.ajax({
             elems.forEach(function(html) {
                 var switchery = new Switchery(html);
             });
-            var changeCheckbox = document.querySelector('.switchery')
-changeCheckbox.onchange = function() {
-  alert(changeCheckbox.checked);
-};
         </script>
+        <script>
+var changeCheckbox = document.querySelector('.js-check-change')
+  , changeField = document.querySelector('.js-check-change-field');
+
+changeCheckbox.onchange = function() {
+  changeField.innerHTML = changeCheckbox.checked;
+};
+</script>
  <div id="footer">
   <button id = "showi" type="button" class="btn" >Home</button><button type="button" id="shows" class="btn">Settings</button><button type="button" class="btn" id="showa">About</button>
   </div>
