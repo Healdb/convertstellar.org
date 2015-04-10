@@ -18,7 +18,22 @@ function myfunc(json) {
 </script>
 <script>
   $("#showi").click(function(){
+        $("#body1").show();
+        $("#body2").hide();
+        $("#body3").hide();
+        
+    });
+    $("#shows").click(function(){
         $("#body1").hide();
+        $("#body2").show();
+        $("#body3").hide();
+        
+    });
+    $("#showa").click(function(){
+        $("#body1").hide();
+        $("#body2").hide();
+        $("#body3").show();
+        
     });
 </script>
 <script>
@@ -63,8 +78,8 @@ $.ajax({
 
 </HEAD>
 </div>
- <div id="body1">
 <BODY>
+ <div id="body1">
 <center>
 <img src="https://www.stellar.org/wp-content/uploads/2014/07/Twitter_avatar-150x150.png" alt="Hello!">
 <H1><font face="arial">Stellar Conversion</font></H1>
@@ -85,7 +100,29 @@ $.ajax({
 </select>
 </FORM>
 <input id="answer" size="25" type="text" align="center" value="">
-</BODY>
+</div>
+<div id="body2">
+<BR><BR><BR><BR><BR><BR><BR>
+<form class="switchery-form">
+                <p class="settings-heading">Manage Your App's Settings</p>
+                
+                <p class="setting-switch setting-switch-first">
+                    <label for="setting1">Enable Dark Theme</label>
+                    <!-- Switchery checkbox #1 -->
+                    <input type="checkbox" class="switchery" name="setting1" />
+                </p>
+                
+                <p class="setting-switch">
+                    <label for="setting2">Enable Cat</label>
+                    <!-- Switchery checkbox #2 -->
+                    <input type="checkbox" class="switchery" name="setting2" />
+                </p>
+            </form>
+</div>
+<div id="body3">
+<BR><BR><BR><BR><BR><BR>
+<p><font face="arial">This app provides the latest exchange rates between the digital currency Stellar, USD, Bitcoin, Ripple, and Dogecoin.</font></p>
+<address><font face="arial">&copy; Copyright 2014 All Rights Reserved www.convertstellar.org</font></address>
 </div>
 <script>
         readText(this.form)
@@ -94,8 +131,26 @@ $.ajax({
 <input type="hidden" id="dprice" value="">
 <input type="hidden" id="doprice" value="">
 <input type="hidden" id="xprice" value="">
+ <script type="text/javascript">
+            // Create the Switchery object
+            var Switchery = require('switchery');
+            
+            // You can change the class of your Switchery checkboxes
+            // by changing the document.querySelectorAll() argument.
+            // For example: If we want to use the class name ios7-switch,
+            // i.e. <input type="checkbox" class="ios7-switch" />
+            // we update the following line to
+            // ...document.querySelectorAll('.ios7-switch')...
+            var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
+            
+            // This loop is needed so that we can have
+            // more than one Switchery checkbox
+            elems.forEach(function(html) {
+                var switchery = new Switchery(html);
+            });
+        </script>
  <div id="footer">
-  <button id = "showi" type="button" class="btn" >Home</button><a href="settings.html"><button type="button" id="shows" class="btn" href="settings.html">Settings</button></a><a href="about.html"><button type="button" class="btn" id="showa" href="about.html">About</button></a>
+  <button id = "showi" type="button" class="btn" >Home</button><button type="button" id="shows" class="btn">Settings</button><button type="button" class="btn" id="showa">About</button>
   </div>
 </center>
 </HTML>
