@@ -158,7 +158,7 @@ $.ajax({
 
       changeCheckbox.onchange = function() {
         console.log(changeCheckbox.checked);
-        if(changeCheckbox.checked=="true"){
+        if(changeCheckbox.checked==true){
         var sheet = document.styleSheets[0];
         console.log(document.styleSheets[0]);
         sheet.addRule("body", "background: #000000;", 1);
