@@ -28,18 +28,6 @@ $(document).ready(function () {
 $("#body2").hide();
 $("#body3").hide();
 $("#body1").show();
-    $("#shows").click(function(){
-        $("#body1").hide();
-        $("#body2").show();
-        $("#body3").hide();
-        
-    });
-    $("#showa").click(function(){
-        $("#body1").hide();
-        $("#body2").hide();
-        $("#body3").show();
-        
-    });
 $.ajax({
   type: "GET",
   url: "http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker&callback=jsonp",
@@ -160,7 +148,7 @@ $.ajax({
     </script>
     
  <div id="footer">
-  <form id ="hey" action='/'><input type='submit' id = "showi" class="btn" value='Home'></input></form><input type="submit" id="shows" class="btn" value="Settings"></input><input type="submit" class="btn" id="showa" value="About"></input>
+  <form id = "showi" action='/'><input type='submit' class="btn" value='Home'></input></form><form id = "shows" action='/'><input type="submit" id="shows" class="btn" value="Settings"></input></form><form id = "showa" action='/'><input type="submit" class="btn" id="showa" value="About"></input></form>
   </div>
 <script src='fastbutton.js'></script>
 <script>
@@ -171,7 +159,8 @@ $.ajax({
       }).submit(function() {
         return false;
       });
-    </script>
+    
+</script>
 
 </center>
 </HTML>
