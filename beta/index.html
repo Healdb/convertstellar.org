@@ -82,6 +82,13 @@ $.ajax({
 });
 
 </script>
+<script>
+$(document).on("pagecreate","#pageone",function(){
+  $("BODY").on("swipe",function(){
+    alert("hello!");
+  });                       
+});
+</script>
 
 </HEAD>
 </div>
