@@ -43,6 +43,9 @@ function myfunc2(json) {
 </script>
 <script>
 $(document).ready(function () {
+$("#body2").hide();
+$("#body3").hide();
+$("#body1").show();
 $.ajax({
   type: "GET",
   url: "http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker&callback=jsonp",
