@@ -27,6 +27,12 @@ form {
   font-size: 20px;
   width:33.3333333333333%;
 }
+input{
+   margin:0;
+  padding: 10px 20px 10px 20px;
+  font-size: 20px;
+  width:33.3333333333333%;
+}
 .btn {
   background: #C0C0C0;
   background-image: -webkit-linear-gradient(top, #C0C0C0, #E0E0E0);
