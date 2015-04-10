@@ -17,6 +17,11 @@ function myfunc(json) {
 }
 </script>
 <script>
+  $("#showi").click(function(){
+        $("#body1").hide();
+    });
+</script>
+<script>
 function myfunc2(json) {
   document.getElementById("xprice").value = json.data.avg.value;
 }
@@ -58,7 +63,7 @@ $.ajax({
 
 </HEAD>
 </div>
- <div id="body">
+ <div id="body1">
 <BODY>
 <center>
 <img src="https://www.stellar.org/wp-content/uploads/2014/07/Twitter_avatar-150x150.png" alt="Hello!">
@@ -90,7 +95,7 @@ $.ajax({
 <input type="hidden" id="doprice" value="">
 <input type="hidden" id="xprice" value="">
  <div id="footer">
-  <a href="index.html"><button type="button" class="btn" >Home</button></a><a href="settings.html"><button type="button" class="btn" href="settings.html">Settings</button></a><a href="about.html"><button type="button" class="btn" href="about.html">About</button></a>
+  <a href="index.html"><button id = "showi" type="button" class="btn" >Home</button></a><a href="settings.html"><button type="button" id="shows" class="btn" href="settings.html">Settings</button></a><a href="about.html"><button type="button" class="btn" id="showa" href="about.html">About</button></a>
   </div>
 </center>
 </HTML>
