@@ -26,14 +26,10 @@ function myfunc2(json) {
 </script>
 <script>
 $(document).ready(function () {
-$("#home").click(function() {
-  alert('home is checked');
-    // this function will get executed every time the #home element is clicked (or tab-spacebar changed)
-    if($(this).is(":checked")) // "this" refers to the element that fired the event
-    {
-        alert('home is checked');
-    }
-});
+var changeCheckbox = document.querySelector('.switchery')
+changeCheckbox.onchange = function() {
+  alert(changeCheckbox.checked);
+};
 $("#body2").hide();
 $("#body3").hide();
 $("#body1").show();
