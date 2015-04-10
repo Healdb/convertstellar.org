@@ -159,7 +159,7 @@ $.ajax({
       changeCheckbox.onchange = function() {
         var sheet = document.styleSheets[0];
         console.log(document.styleSheets[0]);
-        alert(changeCheckbox.checked);
+        sheet.insertRule("background: #000000", 5);
       };
 
     </script>
