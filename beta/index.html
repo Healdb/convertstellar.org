@@ -26,6 +26,10 @@ function myfunc2(json) {
 </script>
 <script>
 $(document).ready(function () {
+  function changeTheme () {
+    document.write("<style>body { background-color:#000000 }</style>");
+    alert("hey");
+  }
 $("#body2").hide();
 $("#body3").hide();
 $("#body1").show();
@@ -129,12 +133,6 @@ $.ajax({
 <p><font face="arial">This app provides the latest exchange rates between the digital currency Stellar, USD, Bitcoin, Ripple, and Dogecoin.</font></p>
 <address><font face="arial">&copy; Copyright 2014 All Rights Reserved www.convertstellar.org</font></address>
 </div>
-<script>
-  function changeTheme () {
-    document.write("<style>body { background-color:#000000 }</style>");
-    alert("hey");
-  }
-</script>
 <input type="hidden" id="sprice" value="">
 <input type="hidden" id="dprice" value="">
 <input type="hidden" id="doprice" value="">
