@@ -26,10 +26,6 @@ function myfunc2(json) {
 </script>
 <script>
 $(document).ready(function () {
-var changeCheckbox = document.querySelector('.switchery')
-changeCheckbox.onchange = function() {
-  alert(changeCheckbox.checked);
-};
 $("#body2").hide();
 $("#body3").hide();
 $("#body1").show();
@@ -154,6 +150,10 @@ $.ajax({
             elems.forEach(function(html) {
                 var switchery = new Switchery(html);
             });
+            var changeCheckbox = document.querySelector('.switchery')
+changeCheckbox.onchange = function() {
+  alert(changeCheckbox.checked);
+};
         </script>
  <div id="footer">
   <button id = "showi" type="button" class="btn" >Home</button><button type="button" id="shows" class="btn">Settings</button><button type="button" class="btn" id="showa">About</button>
