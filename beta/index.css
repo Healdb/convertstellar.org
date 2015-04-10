@@ -24,6 +24,9 @@ body {
 input{ 
     text-align:center; 
 }
+form {
+    display: inline-block;
+}
 .btn {
   background: #C0C0C0;
   background-image: -webkit-linear-gradient(top, #C0C0C0, #E0E0E0);
