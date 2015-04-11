@@ -19,7 +19,7 @@ body {
    position:absolute;
    bottom:0;
    width:100%;
-   height:45px;   /* Height of the footer */
+   height:60px;   /* Height of the footer */
 }
 input{ 
     text-align:center; 
