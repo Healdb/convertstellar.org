@@ -21,6 +21,7 @@ body {
    bottom:0;
    width:33.3333333333333%;
    display: inline-block;
+   float: left;
    height:80px;   /* Height of the footer */
 }
 .footers2 {
