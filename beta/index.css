@@ -24,7 +24,8 @@ body {
 .footers {
    position:absolute;
    bottom:0;
-   width:100%;
+   33.3333333333333%;
+   display: inline-block;
    height:100px;   /* Height of the footer */
 }
 input{ 
