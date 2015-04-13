@@ -19,14 +19,14 @@ body {
 .footers {
    position:absolute;
    bottom:0;
-   33.3333333333333%;
+   width:33.3333333333333%;
    display: inline-block;
    height:80px;   /* Height of the footer */
 }
 .footers2 {
    position:absolute;
-   bottom:50;
-   33.3333333333333%;
+   bottom:0;
+   width:33.3333333333333%;
    display: inline-block;
    height:100px;   /* Height of the footer */
 }
