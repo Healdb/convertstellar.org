@@ -25,7 +25,7 @@ body {
 }
 .footers2 {
    position:absolute;
-   bottom:0;
+   bottom:50;
    33.3333333333333%;
    display: inline-block;
    height:100px;   /* Height of the footer */
