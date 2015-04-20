@@ -11,11 +11,17 @@
 <script src="inobounce.js"></script>
 <script type="text/javascript" src="fetchp.js"></script>
 <link href="switchery.css" rel="stylesheet" />
+    <link rel="stylesheet" href="framework7.min.css">
 <script>
 function myfunc(json) {
   document.getElementById("sprice").value = json.data.avg.value;
   document.getElementById("answer").value = 1000* json.data.avg.value;
 
+}
+</script>
+<script>
+function myFunction() {
+    document.getElementById("answer").select();
 }
 </script>
 <script>
@@ -64,11 +70,46 @@ $.ajax({
 
 </HEAD>
 </div>
-<BODY class='use-fastclick'>
-
+<!-- Views-->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class-->
+      <div class="view view-main">
+        <!-- Top Navbar-->
+        <div class="navbar">
+          <!-- Navbar inner for Index page-->
+          <div data-page="index" class="navbar-inner">
+            <!-- We have home navbar without left link-->
+            <div class="center sliding"><p class="top">Convert Stellar</p></div>
+            <div class="right">
+              <!-- Right link contains only icon - additional "icon-only" class--><a class="fastClick" id="showi">Home</a>
+            </div>
+          </div>
+          <!-- Navbar inner for About page-->
+          <div data-page="about" class="navbar-inner cached">
+            <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+            <div class="center sliding">About Us</div>
+          </div>
+          <!-- Navbar inner for Services page-->
+          <div data-page="services" class="navbar-inner cached">
+            <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+            <div class="center sliding">Services</div>
+          </div>
+          <!-- Navbar inner for Form page-->
+          <div data-page="form" class="navbar-inner cached">
+            <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+            <div class="center sliding">Form</div>
+          </div>
+        </div>
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+          <!-- Index Page-->
+          <div data-page="index" class="page">
+<BODY >
+<center>
  <div id="body1">
-<img src="https://www.stellar.org/wp-content/uploads/2014/07/Twitter_avatar-150x150.png" alt="Hello!">
-<H1><font face="arial">Stellar Conversion</font></H1>
+ <BR><BR>
+<img src="rocket.png" alt="Hello!">
+<H1><font face="arial">Convert Stellar</font></H1>
 <FORM onsubmit="return false" id = "myform" NAME="myform">
 <input class="tfield4" id="number" type="text" size="10" onchange="readText(this.form)" value="1000">&nbsp;<select class="tfield4" id="test" onchange="readText(this.form)">
 <option >BTC</option>
@@ -85,24 +126,25 @@ $.ajax({
 
 </select>
 </FORM>
-<input class="tfield" id="answer" size="25" type="text" align="center" value="">
+<input class="tfield" id="answer" size="25" type="text" align="center" value="" onclick="myFunction()">
 </div>
+
 <div id="body2">
 <BR><BR><BR><BR><BR><BR><BR>
 <form class="switchery-form">
-                <p class="settings-heading">Manage Your App's Settings</p>
+                <p class="settings-heading">App Settings</p>
                 
                 <p class="setting-switch setting-switch-first">
                     <label for="setting1">Enable Dark Theme</label>
                     <!-- Switchery checkbox #1 -->
-                    <input type="checkbox" class="js-switch js-check-change" name="setting1"/>
+                    <input id = "theme" type="checkbox" class="js-switch js-check-change" name="setting1"/>
                 </p>
             </form>
 </div>
 <div id="body3">
 <BR><BR><BR><BR><BR><BR>
 <p><font face="arial">This app provides the latest exchange rates between the digital currency Stellar, USD, Bitcoin, Ripple, and Dogecoin.</font></p>
-<address><font face="arial">&copy; Copyright 2014 All Rights Reserved www.convertstellar.org</font></address>
+<address><font face="arial">&copy; Copyright 2015 All Rights Reserved www.convertstellar.org</font></address>
 </div>
 <input type="hidden" id="sprice" value="">
 <input type="hidden" id="dprice" value="">
@@ -110,6 +152,23 @@ $.ajax({
 <input type="hidden" id="xprice" value="">
 <script type="text/javascript" src="switchery.js"></script>
     <script type="text/javascript">
+    console.log(localStorage.getItem("theme"));
+		if(localStorage.getItem("theme")=="true"){
+        var sheet = document.styleSheets[2];
+        console.log(document.styleSheets[2]);
+        sheet.addRule(".page", "background: #000000; background-color: rgb(0,0,0) !important;", 1);
+        var sheet = document.styleSheets[0];
+        document.getElementById("theme").checked = true;
+        $('#theme').prop('checked', true);
+        sheet.addRule("body", "color: white !important;", 1);
+        }
+        else{
+        var sheet = document.styleSheets[2];
+        sheet.removeRule(1);
+        var sheet = document.styleSheets[0];
+        sheet.removeRule(1);
+         $('#theme').prop('checked', false);
+        }
 
       // Default
       // if-else statement used only for fixing <IE9 issues
@@ -134,22 +193,36 @@ $.ajax({
       changeCheckbox.onchange = function() {
         console.log(changeCheckbox.checked);
         if(changeCheckbox.checked==true){
+        var sheet = document.styleSheets[2];
+        console.log(document.styleSheets[2]);
+        sheet.addRule(".page", "background: #000000; background-color: rgb(0,0,0) !important;", 1);
         var sheet = document.styleSheets[0];
-        console.log(document.styleSheets[0]);
-        sheet.addRule("body", "background: #000000; color: white;", 1);
+        sheet.addRule("body", "color: white !important;", 1);
+        localStorage.setItem("theme", true);
         }
         if(changeCheckbox.checked==false){
-        var sheet = document.styleSheets[0];
-        console.log(document.styleSheets[0]);
+        var sheet = document.styleSheets[2];
+        console.log(document.styleSheets[2]);
         sheet.removeRule(1);
+        var sheet = document.styleSheets[0];
+        sheet.removeRule(1);
+        localStorage.setItem("theme", false);
         }
       };
-
     </script>
-    
- <div id="footer" class="footers">
-  <form class="frm" id = "shows" action='/'><input type="submit" class="btn" value="Settings"></input></form></div><div id="footer" class="footers2"><form class="frm2" id = "showi" action='/'><input type='submit' id = "showi" class="btn2" value='Home'></input></form></div><form class="frm" id = "showa" action='/'><input type="submit" class="btn" value="About"></input></form>
-  
+    </center>
+    <div class="toolbar">
+          <div class="toolbar-inner"><a class="fastClick" id = "shows">Settings</a><a class="fastClick" id = "showi"></a><a  id = "showa" >About</a>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script type="text/javascript" src="framework7.min.js"></script>
+    <script>
+    var myApp = new Framework7({
+    fastClicks: true,
+});
+    </script>
 <script src='fastbutton.js'></script>
 <script>
       $('#showi').click(function(ev) {
