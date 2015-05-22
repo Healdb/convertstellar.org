@@ -101,7 +101,7 @@ Storage.prototype.getObj = function(key) {
           <!-- Navbar inner for Index page-->
           <div data-page="index" class="navbar-inner">
             <!-- We have home navbar without left link-->
-            <div class="center sliding"><p class="top">HOMEWORK</p></div>
+            <div class="center sliding"><p id = "title" class="top">HOMEWORK</p></div>
             <div class="right">
               <!-- Right link contains only icon - additional "icon-only" class--><a class="fastClick" id="showi">Add</a>
             </div>
@@ -246,6 +246,13 @@ Storage.prototype.getObj = function(key) {
       $('#shows').click(function(ev) {
         $("#body1").hide();
         $("#body2").show();
+        $("#body3").hide();
+      }).submit(function() {
+        return false;
+      });
+      $('#title').click(function(ev) {
+        $("#body1").show();
+        $("#body2").hide();
         $("#body3").hide();
       }).submit(function() {
         return false;
