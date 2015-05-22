@@ -264,14 +264,14 @@ $('#list').text("[]");
 function addSite (form) {
     var newSite = form;
 	console.log(newSite);
-var siteslist = [];
+var siteslist = [""];
 try {
 siteslist = localStorage.getObj("sites");
 	siteslist.push(newSite);
 	localStorage.setObj("sites", siteslist);
 }
 catch(err) {
-    console.log("empty user");
+    console.log("empty user" + err);
 	siteslist.push(newSite);
 	localStorage.setObj("sites", siteslist);
 	
