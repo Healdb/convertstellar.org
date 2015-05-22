@@ -271,7 +271,7 @@ siteslist = localStorage.getObj("sites");
 	localStorage.setObj("sites", siteslist);
 }
 catch(err) {
-	siteslist = [""];
+	siteslist = [];
     console.log("empty user" + err);
 	siteslist.push(newSite);
 	localStorage.setObj("sites", siteslist);
