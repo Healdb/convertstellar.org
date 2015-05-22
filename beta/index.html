@@ -232,8 +232,8 @@ Storage.prototype.getObj = function(key) {
 <script src='fastbutton.js'></script>
 <script>
       $('#showi').click(function(ev) {
-	  myApp.prompt('Please input URL', 'Adding Homework Site', 'http://' function (k) {
-	  if(k=="Http://"){
+	  myApp.prompt('Please input URL', 'Adding Homework Site', function (k) {
+	  if(k==""){
 	  	console.log("empty");
 	  }
 	  else{
