@@ -233,7 +233,12 @@ Storage.prototype.getObj = function(key) {
 <script>
       $('#showi').click(function(ev) {
 	  var k = prompt('What is your name?');
+	  if(k==""){
+	  	console.log("empty");
+	  }
+	  else{
 	  addSite(k);
+	  }
       }).submit(function() {
         return false;
       });
