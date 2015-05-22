@@ -12,62 +12,84 @@
 <script type="text/javascript" src="fetchp.js"></script>
 <link href="switchery.css" rel="stylesheet" />
     <link rel="stylesheet" href="framework7.min.css">
+	<script>
+function parseChange(site){
+	var k ="x";
+	console.log("p1");
+	$.getJSON('http://whateverorigin.org/get?url=' + encodeURIComponent(site) + '&callback=?', function(data){
+			console.log("AHHHHHHHHHHH");
+		console.log("p2");
+		try {
+		var str2 = data.contents;
+		var str= localStorage.getItem(site); 
+		  str2 = str2.replace(/(\r\n|\n|\r)/gm," ");
+		  str = str.replace(/(\r\n|\n|\r)/gm," ");
+		  var res2 = str.split(" ");
+		  var res = str2.split(" ");
+		  //console.log(res);
+		  //console.log(res2);
+		  for(i=0;i<res.length;i++){
+               for(t=0;t<res2.length;t++){
+                    if(res[i] == res2[t]){
+                         res[i] = "";
+                    }
+               }
+          }
+          var st = res.toString();
+          k = st.replace(/,/g , " ");
+          k = k.replace(" ","");
+			localStorage.setItem(site, str2);
+			console.log("change" + k);
+			var html = document.getElementById("htmlbox").innerHTML + k;
+			$('#htmlbox').text(html);
+			localStorage.setItem("htmlbox", html);
+			}	
+		catch(err) {
+			console.log("new entry " + err);
+			localStorage.setItem(site, newr);
+			}
+		});
+	}
+</script>
 <script>
-function myfunc(json) {
-  document.getElementById("sprice").value = json.data.avg.value;
-  document.getElementById("answer").value = 1000* json.data.avg.value;
+function clearText(){
+document.getElementById("htmlbox").innerHTML = "";
+localStorage.setItem("htmlbox", "");
+}
+</script>
+	<script>
+function checkSites(){
+	var siteslist = localStorage.getObj("sites");
+	var i = 0;
+	var t = "";
+	while(i<siteslist.length){
+		var temp = siteslist[i];
+		console.log(temp);
+		parseChange(temp);
+		i++;
+		
+	}
+	$('#list').text("[" +localStorage.getObj("sites") + "]");
 
-}
-</script>
-<script>
-function myFunction() {
-    document.getElementById("answer").select();
-}
-</script>
-<script>
-function myfunc2(json) {
-  document.getElementById("xprice").value = json.data.avg.value;
-}
+	}
 </script>
 <script>
 $(document).ready(function () {
 $("#body2").hide();
 $("#body3").hide();
 $("#body1").show();
-$.ajax({
-  type: "GET",
-  url: "http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker&callback=jsonp",
-  dataType: 'jsonp',
-  jsonpCallback: 'myfunc', // the function to call
-  jsonp: 'callback', // name of the var specifying the callback in the request
-  error: function (xhr, errorType, exception) {
-    var errorMessage = exception || xhr.statusText;
-    alert("Excep:: " + exception + "Status:: " + xhr.statusText);
-  }
+document.getElementById("htmlbox").innerHTML = localStorage.getItem("htmlbox");
+checkSites();
 });
-$.ajax({
-  type: "GET",
-  url: "http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCXRP/money/ticker&callback=jsonp",
-  dataType: 'jsonp',
-  jsonpCallback: 'myfunc2', // the function to call
-  jsonp: 'callback', // name of the var specifying the callback in the request
-  error: function (xhr, errorType, exception) {
-    var errorMessage = exception || xhr.statusText;
-    alert("Excep:: " + exception + "Status:: " + xhr.statusText);
-  }
-});
-  $.get("https://jsonp.nodejitsu.com/?callback=&url=http%3A%2F%2Fpubapi1.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D2", function(data){
-    var dprice = (data.return.markets.BTC.lasttradeprice);
-    document.getElementById("dprice").value = dprice;
-  });
-  $.get("https://jsonp.nodejitsu.com/?callback=&url=http%3A%2F%2Fpubapi1.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D132", function(data){
-    var doprice = (data.return.markets.DOGE.lasttradeprice);
-    document.getElementById("doprice").value = doprice;
-  });
-});
-
 </script>
-
+<script>
+Storage.prototype.setObj = function(key, obj) {
+    return this.setItem(key, JSON.stringify(obj))
+}
+Storage.prototype.getObj = function(key) {
+    return JSON.parse(this.getItem(key))
+}
+</script>
 </HEAD>
 </div>
 <!-- Views-->
@@ -79,9 +101,9 @@ $.ajax({
           <!-- Navbar inner for Index page-->
           <div data-page="index" class="navbar-inner">
             <!-- We have home navbar without left link-->
-            <div class="center sliding"><p class="top">Convert Stellar</p></div>
+            <div class="center sliding"><p class="top">HOMEWORK</p></div>
             <div class="right">
-              <!-- Right link contains only icon - additional "icon-only" class--><a class="fastClick" id="showi">Home</a>
+              <!-- Right link contains only icon - additional "icon-only" class--><a class="fastClick" id="showi">Add</a>
             </div>
           </div>
           <!-- Navbar inner for About page-->
@@ -106,27 +128,15 @@ $.ajax({
           <div data-page="index" class="page">
 <BODY >
 <center>
- <div id="body1">
- <BR><BR>
-<img src="rocket.png" alt="Hello!">
-<H1><font face="arial">Convert Stellar</font></H1>
-<FORM onsubmit="return false" id = "myform" NAME="myform">
-<input class="tfield4" id="number" type="text" size="10" onchange="readText(this.form)" value="1000">&nbsp;<select class="tfield4" id="test" onchange="readText(this.form)">
-<option >BTC</option>
-<option SELECTED >STR</option>
-<option >USD</option>
-<option >DOGE</option>
-<option >XRP</option>
-</select> to <select class="tfield4" id="test2" onchange="readText(this.form)">
-<option >USD</option>
-<option >STR</option>
-<option >DOGE</option>
-<option >XRP</option>
-<option  SELECTED >BTC</option>
-
-</select>
+ <div class="body1" id="body1">
+ <BR><BR><BR>
+ <FORM NAME="myform2" ACTION="" METHOD="GET"> <BR>
+<INPUT TYPE="button" NAME="button" Value="Clear Sites List" onClick="clearSites(this.form)">
 </FORM>
-<input class="tfield" id="answer" size="25" type="text" align="center" value="" onclick="myFunction()">
+<p id="htmlbox">Html </p>
+<p id="list">  </p>
+<INPUT TYPE="button" NAME="button" Value="Check Sites" onClick="checkSites(this.form)">
+<INPUT TYPE="button" NAME="button" Value="Clear found text" onClick="clearText()">
 </div>
 
 <div id="body2">
@@ -146,10 +156,6 @@ $.ajax({
 <p><font face="arial">This app provides the latest exchange rates between the digital currency Stellar, USD, Bitcoin, Ripple, and Dogecoin.</font></p>
 <address><font face="arial">&copy; Copyright 2015 All Rights Reserved www.convertstellar.org</font></address>
 </div>
-<input type="hidden" id="sprice" value="">
-<input type="hidden" id="dprice" value="">
-<input type="hidden" id="doprice" value="">
-<input type="hidden" id="xprice" value="">
 <script type="text/javascript" src="switchery.js"></script>
     <script type="text/javascript">
     console.log(localStorage.getItem("theme"));
@@ -226,9 +232,8 @@ $.ajax({
 <script src='fastbutton.js'></script>
 <script>
       $('#showi').click(function(ev) {
-        $("#body1").show();
-        $("#body2").hide();
-        $("#body3").hide();
+	  var k = prompt('What is your name?');
+	  addSite(k);
       }).submit(function() {
         return false;
       });
@@ -248,7 +253,33 @@ $.ajax({
       });
     
 </script>
-
+<script>
+function clearSites(form){
+localStorage.setItem("sites", "");
+console.log("Sites List Cleared")
+$('#list').text("[]");
+}
+</script>
+<script>
+function addSite (form) {
+    var newSite = form;
+	console.log(newSite);
+var siteslist = [];
+try {
+siteslist = localStorage.getObj("sites");
+	siteslist.push(newSite);
+	localStorage.setObj("sites", siteslist);
+}
+catch(err) {
+    console.log("empty user");
+	siteslist.push(newSite);
+	localStorage.setObj("sites", siteslist);
+	
+}
+console.log(localStorage.getObj("sites"));
+$('#list').text("[" +localStorage.getObj("sites") + "]");
+}
+</script>
 </center>
 </HTML>
 </div>
