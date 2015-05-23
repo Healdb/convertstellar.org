@@ -19,10 +19,11 @@ function parseChange(site){
 	$.getJSON('http://whateverorigin.org/get?url=' + encodeURIComponent(site) + '&callback=?', function(data){
 			console.log("AHHHHHHHHHHH");
 		console.log("p2");
-		try {
 		var str2 = data.contents;
+		str2 = str2.replace(/(\r\n|\n|\r)/gm," ");
+		try {
+		
 		var str= localStorage.getItem(site); 
-		  str2 = str2.replace(/(\r\n|\n|\r)/gm," ");
 		  str = str.replace(/(\r\n|\n|\r)/gm," ");
 		  var res2 = str.split(" ");
 		  var res = str2.split(" ");
