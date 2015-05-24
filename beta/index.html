@@ -16,7 +16,12 @@
 function parseChange(site){
 	var k ="x";
 	console.log("p1");
+	try {
 	$.getJSON('http://whateverorigin.org/get?url=' + encodeURIComponent(site) + '&callback=?', function(data){
+	}
+	catch(err) {
+		myapp.alert("hey");
+	}
 			console.log("AHHHHHHHHHHH");
 		console.log("p2");
 		var str2 = data.contents;
