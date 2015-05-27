@@ -4,20 +4,46 @@
 <HTML>
 <div id="header">
 <HEAD>
-<TITLE>Convert Stellar</TITLE>
+<TITLE>HOMEWORK</TITLE>
 <meta name="viewport" content="user-scalable=no, width=device-width" />
 <link rel="stylesheet" type="text/css" href="index.css">
 <script src="jquery.js"></script>
 <script src="inobounce.js"></script>
 <script type="text/javascript" src="fetchp.js"></script>
 <link href="switchery.css" rel="stylesheet" />
+<link rel="stylesheet" href="highlight.css">
     <link rel="stylesheet" href="framework7.min.css">
 	<script>
+function changeList(site, html){
+	var i = 0;
+	var x ="";
+	if (html==" "){
+	x= "No Change";
+	}
+	else{
+	x="New Changes!"
+	}
+	while (i<5){
+		var t = "r";
+		var c = "c";
+		c += i.toString();
+		t += i.toString();
+		i++;	
+		if(document.getElementById(t).innerHTML == site){
+			html += localStorage.getItem(c);
+			document.getElementById(c).innerHTML = x;
+			localStorage.setItem(c,html);
+		}
+		
+	}
+	}
+</script>
+<script>
 function parseChange(site){
 	var k ="x";
 	console.log("p1");
-	$.getJSON('http://whateverorigin.org/get?url=' + encodeURIComponent(site) + '&callback=?', function(data){
-			console.log("AHHHHHHHHHHH");
+	var request = $.getJSON('http://whateverorigin.org/get?url=' + encodeURIComponent(site) + '&callback=?');
+		request.success(function(data) {
 		console.log("p2");
 		var str2 = data.contents;
 		str2 = str2.replace(/(\r\n|\n|\r)/gm," ");
@@ -37,40 +63,55 @@ function parseChange(site){
                }
           }
           var st = res.toString();
-          k = st.replace(/,/g , " ");
+          k = st.replace(/,/g , "");
           k = k.replace(" ","");
 			localStorage.setItem(site, str2);
 			console.log("change" + k);
-			var html = document.getElementById("htmlbox").innerHTML + k;
-			$('#htmlbox').text(html);
-			localStorage.setItem("htmlbox", html);
+			var html = k;
+
+			changeList(site, html)
 			}	
 		catch(err) {
 			console.log("new entry " + err);
 			localStorage.setItem(site, str2);
-			}
+		}
 		});
+		request.error(function(jqXHR, textStatus, errorThrown) {
+  if (textStatus == 'timeout')
+        myApp.alert("An error occured when checking the website! Please try again!", "ERROR");
+
+  if (textStatus == 'error')
+    myApp.alert("An error occured when checking the website! Please try again!", "ERROR");
+});
 	}
 </script>
 <script>
 function clearText(){
-document.getElementById("htmlbox").innerHTML = "";
-localStorage.setItem("htmlbox", "");
+var i =0;
+while (i<5){
+var c ="c";
+c+=i.toString();
+localStorage.setItem(c,"");
+i++;
+}
 }
 </script>
 	<script>
 function checkSites(){
 	var siteslist = localStorage.getObj("sites");
 	var i = 0;
-	var t = "";
+	var t = "r";
 	while(i<siteslist.length){
+		t = "r";
 		var temp = siteslist[i];
+		t += i.toString();
 		console.log(temp);
 		parseChange(temp);
 		i++;
+		document.getElementById(t).innerHTML = temp;
 		
 	}
-	$('#list').text("[" +localStorage.getObj("sites") + "]");
+
 
 	}
 </script>
@@ -79,7 +120,7 @@ $(document).ready(function () {
 $("#body2").hide();
 $("#body3").hide();
 $("#body1").show();
-document.getElementById("htmlbox").innerHTML = localStorage.getItem("htmlbox");
+$("#body4").hide();
 checkSites();
 });
 </script>
@@ -92,7 +133,6 @@ Storage.prototype.getObj = function(key) {
 }
 </script>
 </HEAD>
-</div>
 <!-- Views-->
     <div class="views">
       <!-- Your main view, should have "view-main" class-->
@@ -102,25 +142,15 @@ Storage.prototype.getObj = function(key) {
           <!-- Navbar inner for Index page-->
           <div data-page="index" class="navbar-inner">
             <!-- We have home navbar without left link-->
-            <div class="center sliding"><p id = "title" class="top">HOMEWORK</p></div>
-            <div class="right">
-              <!-- Right link contains only icon - additional "icon-only" class--><a class="fastClick" id="showi">Add</a>
+			<div class="left">
+              <!-- Right link contains only icon - additional "icon-only" class--><a class="link" id="title">Home</a> 
             </div>
-          </div>
-          <!-- Navbar inner for About page-->
-          <div data-page="about" class="navbar-inner cached">
-            <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
-            <div class="center sliding">About Us</div>
-          </div>
-          <!-- Navbar inner for Services page-->
-          <div data-page="services" class="navbar-inner cached">
-            <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
-            <div class="center sliding">Services</div>
-          </div>
-          <!-- Navbar inner for Form page-->
-          <div data-page="form" class="navbar-inner cached">
-            <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
-            <div class="center sliding">Form</div>
+			<div class="center">
+              Homework
+            </div>
+            <div class="right">
+              <!-- Right link contains only icon - additional "icon-only" class--><a id="showi" class="link" >Add</a>
+            </div>
           </div>
         </div>
         <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
@@ -129,17 +159,84 @@ Storage.prototype.getObj = function(key) {
           <div data-page="index" class="page">
 <BODY >
 <center>
+<div class="page-content pull-to-refresh-content">
+  <div class="pull-to-refresh-layer">
+    <div class="preloader"></div>
+    <div class="pull-to-refresh-arrow"></div>
+  </div>
  <div class="body1" id="body1">
- <BR><BR><BR>
- <FORM NAME="myform2" ACTION="" METHOD="GET"> <BR>
-<INPUT TYPE="button" NAME="button" Value="Clear Sites List" onClick="clearSites(this.form)">
-</FORM>
-<p id="htmlbox">Html </p>
-<p id="list">  </p>
-<INPUT TYPE="button" NAME="button" Value="Check Sites" onClick="checkSites(this.form)">
-<INPUT TYPE="button" NAME="button" Value="Clear found text" onClick="clearText()">
+<p>Pull page down to refresh!</p>
+ <div class="list-block">
+  <ul>
+    <li class="swipeout">
+<div class="swipeout-content">
+      <a href="#" id="a0" class="item-link item-content">
+        <div class="item-inner">
+          <div id="r0" class="item-title">Empty</div>
+          <div id="c0" class="item-after">No Change</div>
+        </div>
+      </a>
+    </div>
+    <div class="swipeout-actions-right"><a href="#" class="action0">Clear</a></div>
+</li>
+    <li class="swipeout">
+<div class="swipeout-content">
+      <a href="#" id="a1" class="item-link item-content">
+        <div class="item-inner">
+          <div id="r1" class="item-title">Empty </div>
+          <div id="c1" class="item-after">No Change</div>
+        </div>
+      </a>
+    </div>
+    <div class="swipeout-actions-right"><a href="#" class="action1">Clear</a></div>
+</li>
+	<li class="swipeout">
+<div class="swipeout-content">
+      <a href="#" id="a2" class="item-link item-content">
+        <div class="item-inner">
+          <div id="r2" class="item-title">Empty </div>
+          <div id="c2" class="item-after">No Change</div>
+        </div>
+      </a>
+    </div>
+    <div class="swipeout-actions-right"><a href="#" class="action2">Clear</a></div>
+</li>
+	<li class="swipeout">
+<div class="swipeout-content">
+      <a href="#" id="a3" class="item-link item-content">
+        <div class="item-inner">
+          <div id="r3" class="item-title">Empty </div>
+          <div id="c3" class="item-after">No Change</div>
+        </div>
+      </a>
+    </div>
+    <div class="swipeout-actions-right"><a href="#" class="action3">Clear</a></div>
+</li>
+	<li class="swipeout">
+<div class="swipeout-content">
+      <a href="#" id="a4" class="item-link item-content">
+        <div class="item-inner">
+          <div id="r4" class="item-title">Empty </div>
+          <div id="c4" class="item-after">No Change</div>
+        </div>
+      </a>
+	  	</div>
+    <div class="swipeout-actions-right"><a href="#" class="action4">Clear</a></div>
+</li>
+    <li class="swipeout">
+<div class="swipeout-content">
+      <a href="#" id="a5" class="item-link item-content">
+        <div class="item-inner">
+          <div id="r5" class="item-title">Empty</div>
+          <div id="c5" class="item-after">No Change</div>
+        </div>
+      </a>
+    </div>
+    <div class="swipeout-actions-right"><a href="#" class="action5">Clear</a></div>
+</li>
+  </ul>
 </div>
-
+</div>
 <div id="body2">
 <BR><BR><BR><BR><BR><BR><BR>
 <form class="switchery-form">
@@ -154,8 +251,13 @@ Storage.prototype.getObj = function(key) {
 </div>
 <div id="body3">
 <BR><BR><BR><BR><BR><BR>
-<p><font face="arial">This app provides the latest exchange rates between the digital currency Stellar, USD, Bitcoin, Ripple, and Dogecoin.</font></p>
-<address><font face="arial">&copy; Copyright 2015 All Rights Reserved www.convertstellar.org</font></address>
+<p><font face="arial">This app helps you to keep track of your homework!</font></p>
+<address><font face="arial">&copy; Copyright 2015 All Rights Reserved www.healdb.com</font></address>
+</div>
+<div id ="body4">
+<BR><BR><BR><BR><BR><BR>
+<p id = "change" ></p>
+</div>
 </div>
 <script type="text/javascript" src="switchery.js"></script>
     <script type="text/javascript">
@@ -219,16 +321,82 @@ Storage.prototype.getObj = function(key) {
     </script>
     </center>
     <div class="toolbar">
-          <div class="toolbar-inner"><a class="fastClick" id = "shows">Settings</a><a class="fastClick" id = "showi"></a><a  id = "showa" >About</a>
+          <div class="toolbar-inner"><a class="link" id = "shows">Settings</a><a  class="link" id = "showa" >About</a>
         </div>
       </div>
-    </div>
-    </div>
     <script type="text/javascript" src="framework7.min.js"></script>
     <script>
-    var myApp = new Framework7({
-    fastClicks: true,
-});
+      var myApp = new Framework7();
+      var $$ = Dom7;
+	  $$('.action0').on('click', function () {
+			var siteslist = localStorage.getObj("sites");
+			var i = 0;
+			siteslist.splice(i,1);
+			localStorage.setObj("sites",siteslist)
+			document.getElementById("r0").innerHTML = "Empty"; 
+			localStorage.setItem("c0","");
+			document.getElementById("c0").innerHTML = "No Change";
+			myApp.swipeoutClose($$('li.swipeout').eq(i));
+		});
+		$$('.action1').on('click', function () {
+			var siteslist = localStorage.getObj("sites");
+			var i = 1;
+			siteslist.splice(i,1);
+			localStorage.setObj("sites",siteslist)
+			document.getElementById("r1").innerHTML = "Empty"; 
+			localStorage.setItem("c1","");
+			document.getElementById("c1").innerHTML = "No Change";
+			myApp.swipeoutClose($$('li.swipeout').eq(i));
+		});  
+		$$('.action2').on('click', function () {
+			var siteslist = localStorage.getObj("sites");
+			var i = 2;
+			siteslist.splice(i,1);
+			localStorage.setObj("sites",siteslist)
+			document.getElementById("r2").innerHTML = "Empty"; 
+			localStorage.setItem("c2","");
+			document.getElementById("c2").innerHTML = "No Change";
+			myApp.swipeoutClose($$('li.swipeout').eq(i));
+		});  
+		$$('.action3').on('click', function () {
+			var siteslist = localStorage.getObj("sites");
+			var i = 3;
+			siteslist.splice(i,1);
+			localStorage.setObj("sites",siteslist)
+			document.getElementById("r3").innerHTML = "Empty"; 
+			localStorage.setItem("c3","");
+			document.getElementById("c3").innerHTML = "No Change";
+			myApp.swipeoutClose($$('li.swipeout').eq(i));
+		});  
+		$$('.action4').on('click', function () {
+			var siteslist = localStorage.getObj("sites");
+			var i = 4;
+			siteslist.splice(i,1);
+			localStorage.setObj("sites",siteslist)
+			document.getElementById("r4").innerHTML = "Empty"; 
+			localStorage.setItem("c4","");
+			document.getElementById("c4").innerHTML = "No Change";
+			myApp.swipeoutClose($$('li.swipeout').eq(i));
+		});  
+		$$('.action5').on('click', function () {
+			var siteslist = localStorage.getObj("sites");
+			var i = 5;
+			siteslist.splice(i,1);
+			localStorage.setObj("sites",siteslist)
+			document.getElementById("r5").innerHTML = "Empty"; 
+			localStorage.setItem("c5","");
+			document.getElementById("c5").innerHTML = "No Change";
+			myApp.swipeoutClose($$('li.swipeout').eq(i));
+		});  
+      var ptrContent = $$('.pull-to-refresh-content');
+      // Add 'refresh' listener on it
+      ptrContent.on('refresh', function (e) {
+          // Emulate 2s loading
+          setTimeout(function () {
+              checkSites()
+              myApp.pullToRefreshDone();
+          }, 1000);
+      });
     </script>
 <script src='fastbutton.js'></script>
 <script>
@@ -248,6 +416,7 @@ Storage.prototype.getObj = function(key) {
         $("#body1").hide();
         $("#body2").show();
         $("#body3").hide();
+		$("#body4").hide();
       }).submit(function() {
         return false;
       });
@@ -255,6 +424,7 @@ Storage.prototype.getObj = function(key) {
         $("#body1").show();
         $("#body2").hide();
         $("#body3").hide();
+		$("#body4").hide();
       }).submit(function() {
         return false;
       });
@@ -262,16 +432,81 @@ Storage.prototype.getObj = function(key) {
         $("#body1").hide();
         $("#body2").hide();
         $("#body3").show();
+		$("#body4").hide();
       }).submit(function() {
         return false;
       });
-    
+    $('#a0').click(function(ev) {
+        $("#body1").hide();
+        $("#body2").hide();
+        $("#body3").hide();
+		document.getElementById("change").innerHTML = localStorage.getItem("c0");
+		$("#body4").show();
+      }).submit(function() {
+        return false;
+      });
+	  $('#a1').click(function(ev) {
+        $("#body1").hide();
+        $("#body2").hide();
+        $("#body3").hide();
+		document.getElementById("change").innerHTML = localStorage.getItem("c1");
+		$("#body4").show();
+      }).submit(function() {
+        return false;
+      });
+	  $('#a2').click(function(ev) {
+        $("#body1").hide();
+        $("#body2").hide();
+        $("#body3").hide();
+		document.getElementById("change").innerHTML = localStorage.getItem("c2");
+		$("#body4").show();
+      }).submit(function() {
+        return false;
+      });
+	  $('#a3').click(function(ev) {
+        $("#body1").hide();
+        $("#body2").hide();
+        $("#body3").hide();
+		document.getElementById("change").innerHTML = localStorage.getItem("c3");
+		$("#body4").show();
+      }).submit(function() {
+        return false;
+      });
+	  $('#a4').click(function(ev) {
+        $("#body1").hide();
+        $("#body2").hide();
+        $("#body3").hide();
+		document.getElementById("change").innerHTML = localStorage.getItem("c4");
+		$("#body4").show();
+      }).submit(function() {
+        return false;
+      });
+	  $('#a5').click(function(ev) {
+        $("#body1").hide();
+        $("#body2").hide();
+        $("#body3").hide();
+		document.getElementById("change").innerHTML = localStorage.getItem("c5");
+		$("#body4").show();
+      }).submit(function() {
+        return false;
+      });
 </script>
+<script>
+function clearList(){
+	var i = 0;
+	while (i<5){
+		var t = "r";
+		t += i.toString();
+		i++;
+		document.getElementById(t).innerHTML = "Empty";
+	}
+	}
+	</script>
 <script>
 function clearSites(form){
 localStorage.setItem("sites", "");
 console.log("Sites List Cleared")
-$('#list').text("[]");
+clearList()
 }
 </script>
 <script>
@@ -292,7 +527,7 @@ catch(err) {
 	
 }
 console.log(localStorage.getObj("sites"));
-$('#list').text("[" +localStorage.getObj("sites") + "]");
+checkSites()
 }
 </script>
 </center>
