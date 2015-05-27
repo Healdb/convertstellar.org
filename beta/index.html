@@ -172,7 +172,7 @@ Storage.prototype.getObj = function(key) {
 <div class="swipeout-content">
       <a href="#" id="a0" class="item-link item-content">
         <div class="item-inner">
-          <div id="r0" class="item-title">Empty</div>
+          <div id="r0" class="item-title">Empty: Click the "add" button to add a new site.</div>
           <div id="c0" class="item-after">No Change</div>
         </div>
       </a>
@@ -183,7 +183,7 @@ Storage.prototype.getObj = function(key) {
 <div class="swipeout-content">
       <a href="#" id="a1" class="item-link item-content">
         <div class="item-inner">
-          <div id="r1" class="item-title">Empty </div>
+          <div id="r1" class="item-title">Empty: Click the "add" button to add a new site. </div>
           <div id="c1" class="item-after">No Change</div>
         </div>
       </a>
@@ -194,7 +194,7 @@ Storage.prototype.getObj = function(key) {
 <div class="swipeout-content">
       <a href="#" id="a2" class="item-link item-content">
         <div class="item-inner">
-          <div id="r2" class="item-title">Empty </div>
+          <div id="r2" class="item-title">Empty: Click the "add" button to add a new site. </div>
           <div id="c2" class="item-after">No Change</div>
         </div>
       </a>
@@ -205,7 +205,7 @@ Storage.prototype.getObj = function(key) {
 <div class="swipeout-content">
       <a href="#" id="a3" class="item-link item-content">
         <div class="item-inner">
-          <div id="r3" class="item-title">Empty </div>
+          <div id="r3" class="item-title">Empty: Click the "add" button to add a new site. </div>
           <div id="c3" class="item-after">No Change</div>
         </div>
       </a>
@@ -216,7 +216,7 @@ Storage.prototype.getObj = function(key) {
 <div class="swipeout-content">
       <a href="#" id="a4" class="item-link item-content">
         <div class="item-inner">
-          <div id="r4" class="item-title">Empty </div>
+          <div id="r4" class="item-title">Empty: Click the "add" button to add a new site. </div>
           <div id="c4" class="item-after">No Change</div>
         </div>
       </a>
@@ -227,7 +227,7 @@ Storage.prototype.getObj = function(key) {
 <div class="swipeout-content">
       <a href="#" id="a5" class="item-link item-content">
         <div class="item-inner">
-          <div id="r5" class="item-title">Empty</div>
+          <div id="r5" class="item-title">Empty: Click the "add" button to add a new site.</div>
           <div id="c5" class="item-after">No Change</div>
         </div>
       </a>
@@ -333,7 +333,7 @@ Storage.prototype.getObj = function(key) {
 			var i = 0;
 			siteslist.splice(i,1);
 			localStorage.setObj("sites",siteslist)
-			document.getElementById("r0").innerHTML = "Empty"; 
+			document.getElementById("r0").innerHTML = "Empty: Click the "add" button to add a new site."; 
 			localStorage.setItem("c0","");
 			document.getElementById("c0").innerHTML = "No Change";
 			myApp.swipeoutClose($$('li.swipeout').eq(i));
@@ -343,7 +343,7 @@ Storage.prototype.getObj = function(key) {
 			var i = 1;
 			siteslist.splice(i,1);
 			localStorage.setObj("sites",siteslist)
-			document.getElementById("r1").innerHTML = "Empty"; 
+			document.getElementById("r1").innerHTML = "Empty: Click the "add" button to add a new site."; 
 			localStorage.setItem("c1","");
 			document.getElementById("c1").innerHTML = "No Change";
 			myApp.swipeoutClose($$('li.swipeout').eq(i));
@@ -353,7 +353,7 @@ Storage.prototype.getObj = function(key) {
 			var i = 2;
 			siteslist.splice(i,1);
 			localStorage.setObj("sites",siteslist)
-			document.getElementById("r2").innerHTML = "Empty"; 
+			document.getElementById("r2").innerHTML = "Empty: Click the "add" button to add a new site."; 
 			localStorage.setItem("c2","");
 			document.getElementById("c2").innerHTML = "No Change";
 			myApp.swipeoutClose($$('li.swipeout').eq(i));
@@ -363,7 +363,7 @@ Storage.prototype.getObj = function(key) {
 			var i = 3;
 			siteslist.splice(i,1);
 			localStorage.setObj("sites",siteslist)
-			document.getElementById("r3").innerHTML = "Empty"; 
+			document.getElementById("r3").innerHTML = "Empty: Click the "add" button to add a new site."; 
 			localStorage.setItem("c3","");
 			document.getElementById("c3").innerHTML = "No Change";
 			myApp.swipeoutClose($$('li.swipeout').eq(i));
@@ -373,7 +373,7 @@ Storage.prototype.getObj = function(key) {
 			var i = 4;
 			siteslist.splice(i,1);
 			localStorage.setObj("sites",siteslist)
-			document.getElementById("r4").innerHTML = "Empty"; 
+			document.getElementById("r4").innerHTML = "Empty: Click the "add" button to add a new site."; 
 			localStorage.setItem("c4","");
 			document.getElementById("c4").innerHTML = "No Change";
 			myApp.swipeoutClose($$('li.swipeout').eq(i));
@@ -383,7 +383,7 @@ Storage.prototype.getObj = function(key) {
 			var i = 5;
 			siteslist.splice(i,1);
 			localStorage.setObj("sites",siteslist)
-			document.getElementById("r5").innerHTML = "Empty"; 
+			document.getElementById("r5").innerHTML = "Empty: Click the "add" button to add a new site."; 
 			localStorage.setItem("c5","");
 			document.getElementById("c5").innerHTML = "No Change";
 			myApp.swipeoutClose($$('li.swipeout').eq(i));
@@ -498,7 +498,7 @@ function clearList(){
 		var t = "r";
 		t += i.toString();
 		i++;
-		document.getElementById(t).innerHTML = "Empty";
+		document.getElementById(t).innerHTML = "Empty: Click the "add" button to add a new site.";
 	}
 	}
 	</script>
